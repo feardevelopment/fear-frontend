@@ -1,17 +1,16 @@
 :root {
 	--primaryColor: rgba(224, 100, 66, 0.88);
 	--secondaryColor: rgba(148, 54, 28, 0.58);
-	--accentColor: rgba(65, 224, 177, 0.88);
+	--accentColor: rgba(65, 224, 177, 0.78);
+	--lightAccentColor: rgba(65, 224, 177, 1);
 	--textColor: rgb(32, 32, 32);
 }
 
 html, 
 body {
 	position: relative;
-	width: 100%;
-	height: 100%;
-	background-color: var(--primaryColor);
-	color: var(--textColor);
+	width: 100vw;
+	height: 100vh;
 }
 
 html {
@@ -19,18 +18,25 @@ html {
 }
 
 a {
-	color: var(--textColor);
 	text-decoration: none;
+	color: var(--textColor);
 	background-color: var(--accentColor);
+}
+
+a:hover {
+	background-color: var(--lightAccentColor);
 }
 
 body {
 	margin: 0;
-	padding: 8px;
+	padding: 3em;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	line-height: 1.2;
+	background-color: var(--primaryColor);
+	color: var(--textColor);
 }
 
 *, *::before, *::after {
 	box-sizing: border-box;
+	margin: 0;
 }
