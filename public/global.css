@@ -1,8 +1,7 @@
 :root {
-	--primaryColor: #e06442e0;
+	--primaryColor: rgba(224, 100, 66, 0.88);
 	--secondaryColor: rgba(148, 54, 28, 0.58);
-	--accentColor:rgba(43, 83, 224, 0.88);
-	--buttonTextColor: rgb(227, 227, 227);
+	--accentColor: rgba(65, 224, 177, 0.88);
 	--textColor: rgb(32, 32, 32);
 }
 
@@ -20,7 +19,7 @@ html {
 }
 
 a {
-	color: var(--buttonTextColor);
+	color: var(--textColor);
 	text-decoration: none;
 	background-color: var(--accentColor);
 }
@@ -29,7 +28,7 @@ body {
 	margin: 0;
 	padding: 8px;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-	line-height: 1.3;
+	line-height: 1.2;
 }
 
 *, *::before, *::after {
