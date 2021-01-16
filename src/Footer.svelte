@@ -10,10 +10,10 @@
   footer {
     background-color: var(--footerColor);
     text-align: center;
+    padding: 1em 0;
 
     p {
       font-size: 1.2em;
-      margin: 1em 0;
     }
   }
 </style>
