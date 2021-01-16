@@ -3,14 +3,18 @@
 	--secondaryColor: #FA9048;
 	--accentColor: #58E06A;
 	--lightAccentColor: #6DFF80;
+	--footerColor: #3D8EFF;
 	--textColor: #242424;
 }
 
 html, 
 body {
 	position: relative;
-	width: 100vw;
-	height: 100vh;
+	width: 100%;
+	height: 100%;
+	display: grid;
+	min-height: 100%;
+	grid-template-rows: 1fr auto;
 }
 
 body {
@@ -30,6 +34,14 @@ a {
 
 a:hover {
 	background-color: var(--lightAccentColor);
+}
+
+body {
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	line-height: 1.2;
+	background-color: var(--primaryColor);
+	color: var(--textColor);
 }
 
 *, *::before, *::after {
