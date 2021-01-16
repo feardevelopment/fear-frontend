@@ -1,11 +1,13 @@
 <script lang="ts">
+  import Login from "./Login.svelte";
 </script>
 
 <header>
   <div>
     <span>FEAR</span>
-    <!-- NAVBAR COMPONENT DUMMY -->
-    <nav>login register</nav>
+    <nav>
+      <Login />
+    </nav>
   </div>
 </header>
 
