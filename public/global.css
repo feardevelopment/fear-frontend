@@ -3,14 +3,18 @@
 	--secondaryColor: rgba(148, 54, 28, 0.58);
 	--accentColor: rgba(65, 224, 177, 0.78);
 	--lightAccentColor: rgba(65, 224, 177, 1);
+	--footerColor: #3D8EFF;
 	--textColor: rgb(32, 32, 32);
 }
 
 html, 
 body {
 	position: relative;
-	width: 100vw;
-	height: 100vh;
+	width: 100%;
+	height: 100%;
+	display: grid;
+	min-height: 100%;
+	grid-template-rows: 1fr auto;
 }
 
 html {
@@ -29,7 +33,6 @@ a:hover {
 
 body {
 	margin: 0;
-	padding: 3em;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	line-height: 1.2;
 	background-color: var(--primaryColor);
