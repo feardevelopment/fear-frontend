@@ -1,17 +1,18 @@
 <script lang="ts">
+  import LoggedOutNav from "./LoggedOutNav.svelte";
 </script>
 
 <header>
   <div>
     <span>FEAR</span>
-    <!-- NAVBAR COMPONENT DUMMY -->
-    <nav>login register</nav>
+    <nav>
+      <LoggedOutNav />
+    </nav>
   </div>
 </header>
 
 <style lang="scss">
   header {
-    flex-direction: row;
     height: 48px;
     margin-bottom: 2.4em;
     background-color: rgba(0, 0, 0, 0.05);
