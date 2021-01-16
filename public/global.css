@@ -33,3 +33,25 @@ a {
 	box-sizing: border-box;
 	margin: 0;
 }
+
+ul {
+  display: flex;
+}
+
+ul li {
+  list-style-type: none;
+  margin-left: 0.3em;
+}
+
+ul li a {
+  padding: 4px 10px;
+}
+
+ul li a span {
+  font-weight: 500;
+}
+
+ul li a:active,
+ul li a:visited {
+  color: var(--textColor);
+}

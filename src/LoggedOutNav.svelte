@@ -2,46 +2,25 @@
 
 </script>
 
-<ul>
+<ul class="nav">
   <li><a class="login-cta" href="/"><span>Bejelentkezés</span></a></li>
   <li><a class="register-cta" href="/"><span>Regisztráció</span></a></li>
 </ul>
 
 <style lang="scss">
-  ul {
-    display: flex;
+    ul li a {
+      border-radius: 5px;
 
-    li {
-      list-style-type: none;
-      margin-left: 0.3em;
+      &.register-cta {
+        background-color: var(--accentColor);
 
-      a {
-        padding: 4px 10px;
-        border-radius: 5px;
-
-        span {
-          font-weight: 500;
-        }
-
-        &:active {
-          color: var(--textColor);
-        }
-
-        &:visited {
-          color: var(--textColor);
-        }
-        &.register-cta {
+        &:hover {
           background-color: var(--accentColor);
-
-          &:hover {
-            background-color: var(--lightAccentColor);
-          }
-        }
-
-        &.login-cta:hover {
-          text-decoration: underline;
         }
       }
+
+      &.login-cta:hover {
+        text-decoration: underline;
+      }
     }
-  }
 </style>

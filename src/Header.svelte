@@ -1,12 +1,18 @@
 <script lang="ts">
   import LoggedOutNav from "./LoggedOutNav.svelte";
+  import LoggedInNav from "./LoggedInNav.svelte";
+  let loggedIn: boolean = false;
 </script>
 
 <header>
   <div>
     <span>FEAR</span>
     <nav>
-      <LoggedOutNav />
+      {#if loggedIn}
+        <LoggedInNav />
+      {:else}
+        <LoggedOutNav />
+      {/if}
     </nav>
   </div>
 </header>
