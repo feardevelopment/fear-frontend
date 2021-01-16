@@ -6,7 +6,8 @@
     <h1>A FEAR <em>(Fejlett Adminisztrációs Egyetemi Rendszer)</em> egy tetszőleges egyetem adminisztrálására lesz fejlesztve.</h1>
     <p class="desc">A FEAR célja, hogy kényelmes, biztonságos és gyors adminisztrációt tegyen lehetővé minden felhasználó számára.</p>
     <img src="5251.png" alt="University Graphics">
-    <a href="/"><p>Próbálja ki ingyenesen!</p></a>
+    <a class="register-cta" href="/"><p>Regisztráljon most!</p></a>
+    <a class="login-cta" href="/"><p>Már van fiókja? Jelentkezzen be!</p></a>
   </article>
 </section>
 
@@ -37,6 +38,7 @@
       }
 
       a {
+        &.register-cta {
           padding: 10px;
           border-radius: 5px;
           grid-area: 3 / 1 / 4 / 2;
@@ -53,6 +55,18 @@
             font-size: 3em;
           }
         }
+
+        &.login-cta {
+          text-decoration: underline;
+          color: var(--textColor);
+          grid-area: 4 / 1 / 5 / 2;
+          margin-top: -1.8em;
+
+          p {
+            font-size: 1.5em;
+          }
+        }
+      }
       
       img {
         max-width: 100%;

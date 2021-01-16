@@ -3,8 +3,8 @@
 </script>
 
 <ul>
-  <li><a href="/"><span>Bejelentkezés</span></a></li>
-  <li><a href="/"><span>Regisztráció</span></a></li>
+  <li><a class="login-cta" href="/"><span>Bejelentkezés</span></a></li>
+  <li><a class="register-cta" href="/"><span>Regisztráció</span></a></li>
 </ul>
 
 <style lang="scss">
@@ -13,12 +13,15 @@
 
     li {
       list-style-type: none;
-      margin-left: 1em;
+      margin-left: 0.3em;
 
       a {
-        padding: 3px 10px;
+        padding: 4px 10px;
         border-radius: 5px;
-        background-color: var(--accentColor);
+
+        span {
+          font-weight: 500;
+        }
 
         &:active {
           color: var(--textColor);
@@ -27,9 +30,16 @@
         &:visited {
           color: var(--textColor);
         }
+        &.register-cta {
+          background-color: var(--accentColor);
 
-        span {
-          font-weight: 500;
+          &:hover {
+            background-color: var(--lightAccentColor);
+          }
+        }
+
+        &.login-cta:hover {
+          text-decoration: underline;
         }
       }
     }
