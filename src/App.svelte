@@ -3,8 +3,8 @@
 	import Header from './Header.svelte';
 </script>
 
+<Header />
 <main>
-	<Header />
 	<Home />
 </main>
 
