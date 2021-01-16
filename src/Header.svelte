@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Login from "./Login.svelte";
+  import Login from "./LoggedOutNav.svelte";
 </script>
 
 <header>
@@ -13,7 +13,6 @@
 
 <style lang="scss">
   header {
-    flex-direction: row;
     height: 48px;
     margin-bottom: 2.4em;
     background-color: rgba(0, 0, 0, 0.05);

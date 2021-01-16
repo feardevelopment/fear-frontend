@@ -14,6 +14,7 @@
   section {
     max-width: 1200px;
     margin: auto;
+    margin-bottom: 2em;
 
     article {
       display: grid;
