@@ -41,7 +41,13 @@
           grid-area: 3 / 1 / 4 / 2;
           white-space: nowrap;
           width: min-content;
+          color: var(--textColor);
+          background-color: var(--accentColor);
 
+
+          &:hover {
+            background-color: var(--lightAccentColor);
+          }
           p {
             font-size: 3em;
           }
