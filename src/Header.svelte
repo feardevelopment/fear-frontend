@@ -1,12 +1,12 @@
 <script lang="ts">
-  import Login from "./LoggedOutNav.svelte";
+  import LoggedOutNav from "./LoggedOutNav.svelte";
 </script>
 
 <header>
   <div>
     <span>FEAR</span>
     <nav>
-      <Login />
+      <LoggedOutNav />
     </nav>
   </div>
 </header>
