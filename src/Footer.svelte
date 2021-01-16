@@ -10,8 +10,8 @@
   footer {
     background-color: var(--footerColor);
     text-align: center;
-    grid-row-start: 2;
-    grid-row-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
 
     p {
       font-size: 1.2em;
