@@ -3,7 +3,7 @@
 
 <section>
   <article>
-    <h1>A FEAR <em>(Fejlett Adminisztrációs Egyetemi Rendszer)</em> egy tetszőleges egyetem adminisztrálására lesz fejlesztve.</h1>
+    <h1>A FEAR <em>(Fejlett Egyetemi Adminisztrációs Rendszer)</em> egy tetszőleges egyetem adminisztrálására lesz fejlesztve.</h1>
     <p class="desc">A FEAR célja, hogy kényelmes, biztonságos és gyors adminisztrációt tegyen lehetővé minden felhasználó számára.</p>
     <img src="5251.png" alt="University Graphics">
     <a class="register-cta" href="/"><p>Regisztráljon most!</p></a>
