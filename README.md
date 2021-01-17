@@ -1,6 +1,6 @@
 # FEAR Frontend
 
-This web app is designed to make administration easy, safe and fast for universities. 
+This web app is designed to make administration for universities easy, safe and fast. 
 
 *Note that you will need to have [Node.js](https://nodejs.org) installed.*
 
