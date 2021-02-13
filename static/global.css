@@ -1,0 +1,60 @@
+:root {
+	--primaryColor: #E06542;
+	--secondaryColor: #FA9048;
+	--accentColor: #58E06A;
+	--lightAccentColor: #6DFF80;
+	--footerColor: #3D8EFF;
+	--textColor: #242424;
+}
+
+html, 
+body {
+	position: relative;
+	min-width: 100%;
+	min-height: 100vh;
+}
+
+#svelte {
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+	position: relative;
+	min-width: 100%;
+	min-height: 100vh;
+
+	font-size: 62.5%;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	line-height: 1.2;
+	background: linear-gradient(135deg, var(--primaryColor) 0%, var(--secondaryColor) 100%);
+	color: var(--textColor);
+}
+
+a {
+	text-decoration: none;
+}
+
+*, *::before, *::after {
+	box-sizing: border-box;
+	margin: 0;
+}
+
+ul {
+  display: flex;
+}
+
+ul li {
+  list-style-type: none;
+  margin-left: 0.3em;
+}
+
+ul li a {
+  padding: 4px 10px;
+}
+
+ul li a span {
+  font-weight: 500;
+}
+
+ul li a:active,
+ul li a:visited {
+  color: var(--textColor);
+}
