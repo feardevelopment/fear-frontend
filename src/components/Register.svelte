@@ -1,7 +1,7 @@
 <script lang="ts">
-  let email = '';
-  let password = '';
-  let success: boolean;
+  let email: string;
+  let password: string;
+  let message: string;
 
   async function register() {
     const res = await fetch('http://localhost:3000/register', {
@@ -12,8 +12,7 @@
       }
     });
 
-    const text = await res.text();
-    success = text == '"OK"';
+    message = (await res.json()).message;
   }
 </script>
 
@@ -24,8 +23,6 @@
         <input bind:value={email} type="text" id="email">
         <label for="password">Jelszó:</label>
         <input bind:value={password} type="password" id="password">
-        <label for="password-again">Jelszó ismét:</label>
-        <input type="password" id="password-again">
         <input on:click={register} type="button" value="Regisztráció">
     </form>
 </div>
