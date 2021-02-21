@@ -1,6 +1,7 @@
 <script lang="ts">
   let email = '';
   let password = '';
+  let success: boolean;
 
   async function register() {
     const res = await fetch('http://localhost:3000/register', {
@@ -12,12 +13,7 @@
     });
 
     const text = await res.text();
-    
-    if (res.ok) {
-      return text;
-    } else {
-      throw new Error(text);
-    }
+    success = text == '"OK"';
   }
 </script>
 
