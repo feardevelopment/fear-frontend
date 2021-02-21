@@ -7,7 +7,7 @@
     <p class="desc">A FEAR célja, hogy kényelmes, biztonságos és gyors adminisztrációt tegyen lehetővé minden felhasználó számára.</p>
     <img src="5251.png" alt="University Graphics">
     <a class="login-cta" href="/login"><p>Jelentkezzen be!</p></a>
-    <a class="register-cta" href="/"><p>Még nincs fiókja? Regisztráljon itt!</p></a>
+    <a class="register-cta" href="/register"><p>Még nincs fiókja? Regisztráljon itt!</p></a>
   </article>
 </section>
 
