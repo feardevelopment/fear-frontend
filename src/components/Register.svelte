@@ -1,10 +1,31 @@
 <script lang="ts">
-  let formData = { email: '', password: '' };
-  let errors = { email: '', password: '' };
+  let formData = { firstName: '', lastName: '', email: '', username: '', password: '' };
+  let errors = { firstName: '', lastName: '', email: '', username: '', password: '' };
   let message: string;
 
   const submitHandler = () => {
     let valid = true;
+
+    if (formData.firstName.trim().length < 1) {
+      valid = false;
+      errors.firstName = 'A keresztnév nem lehet üres!'
+    } else {
+      errors.firstName = '';
+    }
+
+    if (formData.lastName.trim().length < 1) {
+      valid = false;
+      errors.lastName = 'A vezetéknév nem lehet üres!'
+    } else {
+      errors.lastName = '';
+    }
+
+    if (formData.username.trim().length < 1) {
+      valid = false;
+      errors.username = 'A felhasználónév nem lehet üres!'
+    } else {
+      errors.username = '';
+    }
     
     if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(formData.email)) {
       valid = false;
@@ -13,9 +34,9 @@
       errors.email = '';
     }
 
-    if (formData.password.length < 8 || formData.password.length > 24) {
+    if (formData.password.trim().length < 8) {
       valid = false;
-      errors.password = 'A jelszónak 8 és 24 karakter között kell lennie!';
+      errors.password = 'A jelszó nem lehet kevesebb, mint 8 karakter!';
     } else {
       errors.password = '';
     }
@@ -42,19 +63,35 @@
 <section>
     <h1>Regisztráció</h1>
     <form on:submit|preventDefault={submitHandler}>
-      <label for="email">Email:</label>
-      <input bind:value={formData.email} type="text" id="email" class:error-input="{errors.email}">
-      <p class="error">{ errors.email }</p>
-      <label for="password">Jelszó:</label>
-      <input bind:value={formData.password} type="password" id="password" class:error-input="{errors.password}">
-      <p class="error">{ errors.password }</p>
+      <div class="name-inputs">
+        <div>
+          <label for="firstName">Keresztnév:</label>
+          <input bind:value={formData.firstName} type="text" id="firstName" class:error-input="{errors.firstName}">
+          <p class="error">{ errors.firstName }</p>
+        </div>
+        <div>
+          <label for="lastName">Vezetéknév:</label>
+          <input bind:value={formData.lastName} type="text" id="lastName" class:error-input="{errors.lastName}">
+          <p class="error">{ errors.lastName }</p>
+        </div>
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input bind:value={formData.email} type="text" id="email" class:error-input="{errors.email}">
+        <p class="error">{ errors.email }</p>
+      </div>
+      <div>
+        <label for="password">Jelszó:</label>
+        <input bind:value={formData.password} type="password" id="password" class:error-input="{errors.password}">
+        <p class="error">{ errors.password }</p>
+      </div>
       <button type="submit">Regisztráció</button>
     </form>
 </section>
 
 <style lang="scss">
   section {
-    width: min-content;
+    width: 550px;
     height: min-content;
     max-width: 960px;
     padding: 20px 50px;
@@ -64,9 +101,10 @@
 
     h1 {
       font-size: 32px;
-      margin-bottom: 35px;
+      margin-bottom: 25px;
       letter-spacing: 2px;
       font-weight: bold;
+      text-align: center;
     }
 
     form {
@@ -98,6 +136,16 @@
         width: 100%;
       }
     }
+  }
+
+  input {
+    width: 100%;
+  }
+
+  .name-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 10px;
   }
 
   .error-input {
