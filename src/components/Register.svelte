@@ -88,9 +88,14 @@
 
       button {
         font-size: 20px;
-        margin-top: 15px;
-        padding: 3px 8px;
+        margin-top: 25px;
+        padding: 10px 0;
         cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        background-color: var(--footerColor);
+        color: #EDEDED;
+        width: 100%;
       }
     }
   }
