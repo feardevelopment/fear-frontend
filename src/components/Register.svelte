@@ -1,12 +1,34 @@
 <script lang="ts">
-  let email: string;
-  let password: string;
+  let data = { email: '', password: '' };
+  let errors = { email: '', password: '' };
   let message: string;
+
+  const submitHandler = () => {
+    let valid = true;
+    
+    if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(data.email)) {
+      valid = false;
+      errors.email = 'Helytelen email!';
+    } else {
+      errors.email = '';
+    }
+
+    if (data.password.length < 8 || data.password.length > 24) {
+      valid = false;
+      errors.password = 'A jelszónak 8 és 24 karakter között kell lennie!';
+    } else {
+      errors.password = '';
+    }
+
+    if (valid) {
+      register();
+    }
+  }
 
   async function register() {
     const res = await fetch('http://localhost:3000/register', {
       method: 'POST',
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify(data),
       headers: {
         'Content-Type': 'application/json'
       }
@@ -18,12 +40,14 @@
 
 <section>
     <h1>Regisztráció</h1>
-    <form>
+    <form on:submit|preventDefault={submitHandler}>
       <label for="email">Email:</label>
-      <input bind:value={email} type="text" id="email">
+      <input bind:value={data.email} type="text" id="email">
+      <p class="error">{ errors.email }</p>
       <label for="password">Jelszó:</label>
-      <input bind:value={password} type="password" id="password">
-      <input on:click={register} type="button" value="Regisztráció">
+      <input bind:value={data.password} type="password" id="password">
+      <p class="error">{ errors.password }</p>
+      <button type="submit">Regisztráció</button>
     </form>
 </section>
 
@@ -44,6 +68,7 @@
     form {
       label {
         display: block;
+        margin: 15px 0 5px;
         font-size: 18px;
         letter-spacing: 1.2px;
         font-weight: 500;
@@ -52,13 +77,22 @@
 
       input {
         font-size: 20px;
-        margin: 8px 0 15px;
         padding: 3px 8px;
+      }
 
-        &[type="button"] {
-          cursor: pointer;
-        }
+      button {
+        font-size: 20px;
+        margin-top: 15px;
+        padding: 3px 8px;
+        cursor: pointer;
       }
     }
+  }
+
+  p.error {
+    color: red;
+    font-weight: bold;
+    font-size: 12px;
+    margin-top: 5px;
   }
 </style>
