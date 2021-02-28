@@ -43,7 +43,7 @@
     <h1>Regisztráció</h1>
     <form on:submit|preventDefault={submitHandler}>
       <label for="email">Email:</label>
-      <input bind:value={formData.email} type="text" id="email" class:error-input="{errors.email}" autocomplete="false">
+      <input bind:value={formData.email} type="text" id="email" class:error-input="{errors.email}">
       <p class="error">{ errors.email }</p>
       <label for="password">Jelszó:</label>
       <input bind:value={formData.password} type="password" id="password" class:error-input="{errors.password}">
@@ -60,6 +60,7 @@
     padding: 20px 50px;
     margin: 0 auto;
     background-color: #EDEDED;
+    border-radius: 8px;
 
     h1 {
       font-size: 32px;
