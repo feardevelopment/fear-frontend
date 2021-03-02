@@ -10,6 +10,7 @@
 <style lang="scss">
     ul li a {
       border-radius: 5px;
+      text-decoration: none;
 
       &.login-cta {
         background-color: var(--accentColor);

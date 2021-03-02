@@ -29,7 +29,7 @@ body {
 }
 
 a {
-	text-decoration: none;
+	color: var(--textColor);
 }
 
 *, *::before, *::after {
