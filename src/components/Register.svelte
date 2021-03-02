@@ -44,7 +44,6 @@
     if (valid) {
       formData.firstName = formData.firstName[0].toUpperCase() + formData.firstName.substring(1).toLowerCase();
       formData.lastName = formData.lastName[0].toUpperCase() + formData.lastName.substring(1).toLowerCase();
-      console.log(formData.firstName, formData.lastName);
       register();
     }
   }
@@ -95,10 +94,12 @@
       </div>
       <button type="submit">Regisztráljon most</button>
     </form>
+    <p class="login-text">Már van felhasználója? Jelentkezzen be <a href="/login">itt!</a></p>
 </section>
 
 <style lang="scss">
   section {
+    text-align: left;
     width: 420px;
     height: min-content;
     max-width: 960px;
@@ -141,6 +142,12 @@
 	      background: linear-gradient(225deg, var(--accentColor) 0%, var(--lightAccentColor) 100%);
         width: 100%;
       }
+    }
+
+    .login-text {
+      font-size: 12px;
+      margin-top: 10px;
+      text-align: center;
     }
   }
 
