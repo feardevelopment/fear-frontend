@@ -42,6 +42,9 @@
     }
 
     if (valid) {
+      formData.firstName = formData.firstName[0].toUpperCase() + formData.firstName.substring(1).toLowerCase();
+      formData.lastName = formData.lastName[0].toUpperCase() + formData.lastName.substring(1).toLowerCase();
+      console.log(formData.firstName, formData.lastName);
       register();
     }
   }
@@ -61,7 +64,7 @@
 </script>
 
 <section>
-    <h1>Regisztráció</h1>
+    <h1>Adja meg az adatait</h1>
     <form on:submit|preventDefault={submitHandler}>
       <div class="name-inputs">
         <div>
@@ -81,17 +84,22 @@
         <p class="error">{ errors.email }</p>
       </div>
       <div>
+        <label for="username">Felhasználónév:</label>
+        <input bind:value={formData.username} type="text" id="username" class:error-input="{errors.username}">
+        <p class="error">{ errors.username }</p>
+      </div>
+      <div>
         <label for="password">Jelszó:</label>
         <input bind:value={formData.password} type="password" id="password" class:error-input="{errors.password}">
         <p class="error">{ errors.password }</p>
       </div>
-      <button type="submit">Regisztráció</button>
+      <button type="submit">Regisztráljon most</button>
     </form>
 </section>
 
 <style lang="scss">
   section {
-    width: 550px;
+    width: 420px;
     height: min-content;
     max-width: 960px;
     padding: 20px 50px;
@@ -100,10 +108,9 @@
     border-radius: 8px;
 
     h1 {
-      font-size: 32px;
+      font-size: 28px;
       margin-bottom: 25px;
       letter-spacing: 2px;
-      font-weight: bold;
       text-align: center;
     }
 
@@ -113,26 +120,25 @@
         margin: 15px 0 5px;
         font-size: 18px;
         letter-spacing: 1.2px;
-        font-weight: 500;
         opacity: 80%;
       }
 
       input {
-        font-size: 20px;
+        font-size: 18px;
         padding: 3px 8px;
         border: 1.5px solid silver;
         border-radius: 5px;
       }
 
       button {
-        font-size: 20px;
+        font-size: 22px;
+        letter-spacing: 1px;
         margin-top: 25px;
         padding: 10px 0;
         cursor: pointer;
         border: none;
         border-radius: 5px;
-        background-color: var(--footerColor);
-        color: #EDEDED;
+	      background: linear-gradient(225deg, var(--accentColor) 0%, var(--lightAccentColor) 100%);
         width: 100%;
       }
     }
