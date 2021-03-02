@@ -7,7 +7,7 @@
     <p class="desc">A FEAR célja, hogy kényelmes, biztonságos és gyors adminisztrációt tegyen lehetővé minden felhasználó számára.</p>
     <img src="5251.png" alt="University Graphics">
     <a class="login-cta" href="/login"><p>Jelentkezzen be!</p></a>
-    <a class="register-cta" href="/register"><p>Még nincs fiókja? Regisztráljon itt!</p></a>
+    <p class="register-text">Még nincs fiókja? Regisztráljon <a href="/register">itt!</a></p>
   </article>
 </section>
 
@@ -35,6 +35,12 @@
         &.desc {
           grid-area: 2 / 1 / 3 / 2;
         }
+
+        &.register-text {
+          font-size: 1.5em;
+          grid-area: 4 / 1 / 5 / 2;
+          margin-top: -1.2em;
+        }
       }
 
       a {
@@ -46,24 +52,13 @@
           width: min-content;
           color: var(--textColor);
           background-color: var(--accentColor);
-
+          text-decoration: none;
 
           &:hover {
             background-color: var(--lightAccentColor);
           }
           p {
             font-size: 3em;
-          }
-        }
-
-        &.register-cta {
-          text-decoration: underline;
-          color: var(--textColor);
-          grid-area: 4 / 1 / 5 / 2;
-          margin-top: -1.8em;
-
-          p {
-            font-size: 1.5em;
           }
         }
       }
