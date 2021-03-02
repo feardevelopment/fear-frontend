@@ -6,7 +6,7 @@
 
 <header>
   <div>
-    <span>FEAR</span>
+    <a href="/"><span>FEAR</span></a>
     <nav>
       {#if loggedIn}
         <LoggedInNav />
@@ -31,10 +31,13 @@
     align-items: center;
     justify-content: space-between;
 
-    span {
+    a {
+      text-decoration: none;
+      span {
       font-size: 3em;
       font-weight: 600;
       letter-spacing: 0.2em;
+    }
     }
 
     nav {
