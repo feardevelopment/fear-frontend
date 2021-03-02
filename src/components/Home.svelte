@@ -1,6 +1,7 @@
 <script lang="ts">
 </script>
 
+
 <main>
   <section>
     <article>
@@ -37,6 +38,12 @@
         &.desc {
           grid-area: 2 / 1 / 3 / 2;
         }
+
+        &.register-text {
+          font-size: 1.5em;
+          grid-area: 4 / 1 / 5 / 2;
+          margin-top: -1.2em;
+        }
       }
 
       a {
@@ -48,24 +55,13 @@
           width: min-content;
           color: var(--textColor);
           background-color: var(--accentColor);
-
+          text-decoration: none;
 
           &:hover {
             background-color: var(--lightAccentColor);
           }
           p {
             font-size: 3em;
-          }
-        }
-
-        &.register-cta {
-          text-decoration: underline;
-          color: var(--textColor);
-          grid-area: 4 / 1 / 5 / 2;
-          margin-top: -1.8em;
-
-          p {
-            font-size: 1.5em;
           }
         }
       }

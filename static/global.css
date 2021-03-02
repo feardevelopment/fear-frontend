@@ -3,7 +3,7 @@
 	--secondaryColor: #FA9048;
 	--accentColor: #58E06A;
 	--lightAccentColor: #6DFF80;
-	--footerColor: #3D8EFF;
+	--footerColor: #242424d9;
 	--textColor: #242424;
 }
 
@@ -29,7 +29,7 @@ body {
 }
 
 a {
-	text-decoration: none;
+	color: var(--textColor);
 }
 
 *, *::before, *::after {
