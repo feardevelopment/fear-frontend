@@ -1,7 +1,7 @@
 <script lang="ts">
   let formData = { username: '', password: '' };
   let errors = { username: '', password: '' };
-  let message: string;
+  let message: object;
 
   const submitHandler = () => {
     let valid = true;
