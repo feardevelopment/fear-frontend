@@ -2,11 +2,47 @@
   let formData = { username: '', password: '' };
   let errors = { username: '', password: '' };
   let message: string;
+
+  const submitHandler = () => {
+    let valid = true;
+
+    if (formData.username.trim().length < 1) {
+      valid = false;
+      errors.username = 'A felhasználónév nem lehet üres!'
+    } else {
+      errors.username = '';
+    }
+
+    if (formData.password.trim().length < 8) {
+      valid = false;
+      errors.password = 'A jelszó nem lehet kevesebb, mint 8 karakter!';
+    } else {
+      errors.password = '';
+    }
+
+    if (valid) {
+      login();
+    }
+  }
+
+  async function login() {
+    const res = await fetch('http://localhost:3000/login', {
+      method: 'POST',
+      body: JSON.stringify(formData),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    message = (await res.json()).message;
+    console.log(message);
+  }
+
 </script>
 
 <section>
   <h1>Bejelentkezés</h1>
-  <form>
+  <form on:submit|preventDefault={submitHandler}>
     <div>
       <label for="username">Felhasználónév:</label>
       <input bind:value={formData.username} type="text" id="username" class:error-input="{errors.username}">
