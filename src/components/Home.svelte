@@ -46,7 +46,7 @@
           width: min-content;
           color: var(--textColor);
           background-color: var(--accentColor);
-
+          text-decoration: none;
 
           &:hover {
             background-color: var(--lightAccentColor);
