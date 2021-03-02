@@ -1,5 +1,9 @@
 <script>
-	import App from '$components/App.svelte';
+	import Home from '$components/Home.svelte';
+	import Footer from '$components/Footer.svelte';
+	import Header from '$components/Header.svelte';
 </script>
 
-<App />
+<Header />
+<Home />
+<Footer />
