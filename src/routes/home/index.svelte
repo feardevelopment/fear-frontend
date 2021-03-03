@@ -1,1 +1,5 @@
-<p>Helloooo home</p>
+<script lang="ts">
+  import Home from '$components/Home.svelte';
+</script>
+
+<Home />
