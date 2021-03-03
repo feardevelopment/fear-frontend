@@ -49,7 +49,7 @@
   }
 
   async function register() {
-    const res = await fetch('http://localhost:3000/register', {
+    const res = await fetch('http://localhost:3000/user/register', {
       method: 'POST',
       body: JSON.stringify(formData),
       headers: {
@@ -57,7 +57,7 @@
       }
     });
 
-    message = (await res.json()).message;
+    message = await res.json();
     console.log(message);
   }
 </script>

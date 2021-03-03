@@ -27,7 +27,7 @@
   }
 
   async function login() {
-    const res = await fetch('http://localhost:3000/login', {
+    const res = await fetch('http://localhost:3000/auth/login', {
       method: 'POST',
       body: JSON.stringify(formData),
       headers: {
