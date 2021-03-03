@@ -1,10 +1,11 @@
 <script lang="ts">
   let formData = { username: '', password: '' };
-  let errors = { username: '', password: '' };
-  let message: object;
+  let errors = { username: '', password: '', failedLogin: '' };
+  let status: { message: string|null, token: string|null };
 
   const submitHandler = () => {
     let valid = true;
+    errors.failedLogin = '';
 
     if (formData.username.trim().length < 1) {
       valid = false;
@@ -34,8 +35,13 @@
       }
     });
 
-    message = (await res.json()).message;
-    console.log(message);
+    status = await res.json();
+
+    if (status.message) {
+      errors.failedLogin = 'Hibás felhasználónév vagy jelszó!';
+    } else {
+      // MOVE TO LOGGED IN HOME PAGE
+    }
   }
 
 </script>
@@ -45,14 +51,15 @@
   <form on:submit|preventDefault={submitHandler}>
     <div>
       <label for="username">Felhasználónév:</label>
-      <input bind:value={formData.username} type="text" id="username" class:error-input="{errors.username}">
+      <input bind:value={formData.username} type="text" id="username" class:error-input="{errors.username || errors.failedLogin}">
       <p class="error">{ errors.username }</p>
     </div>
     <div>
       <label for="password">Jelszó:</label>
-      <input bind:value={formData.password} type="password" id="password" class:error-input="{errors.password}">
+      <input bind:value={formData.password} type="password" id="password" class:error-input="{errors.password || errors.failedLogin}">
       <p class="error">{ errors.password }</p>
     </div>
+    <p class="error login">{ errors.failedLogin }</p>
     <button type="submit">Bejelentkezés</button>
   </form>
   <p class="register-text">Még nincs felhasználója? Regisztráljon <a href="/register">itt!</a></p>
@@ -125,5 +132,11 @@ section {
     font-weight: bold;
     font-size: 12px;
     margin-top: 5px;
+
+    &.login {
+      text-align: center;
+      font-size: 18px;
+      margin-top: 10px;
+    }
   }
 </style>
