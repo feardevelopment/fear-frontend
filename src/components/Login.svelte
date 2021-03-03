@@ -37,10 +37,13 @@
 
     status = await res.json();
 
+    console.log(status);
+
     if (status.message) {
       errors.failedLogin = 'Hibás felhasználónév vagy jelszó!';
     } else {
-      // MOVE TO LOGGED IN HOME PAGE
+      window.location.href = "/home";  // This should work fine now, only for testing
+      // Maybe should find an official route change within svelte-kit
     }
   }
 
