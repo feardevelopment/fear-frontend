@@ -42,6 +42,7 @@
     if (status.message) {
       errors.failedLogin = 'Hibás felhasználónév vagy jelszó!';
     } else {
+      localStorage.setItem("FEAR_token", status.token);
       window.location.href = "/home";  // This should work fine now, only for testing
       // Maybe should find an official route change within svelte-kit
     }
