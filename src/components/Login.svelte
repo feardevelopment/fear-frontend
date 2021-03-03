@@ -37,8 +37,6 @@
 
     status = await res.json();
 
-    console.log(status);
-
     if (status.message) {
       errors.failedLogin = 'Hibás felhasználónév vagy jelszó!';
     } else {
