@@ -25,7 +25,7 @@
   };
 </script>
 
-<main>
+<section>
   <form on:submit|preventDefault="{sendTraining}">
     <!-- <div>
       <label for="name">Név:</label>
@@ -51,13 +51,12 @@
       <button type="submit"></button>
     {/await}
   </form>
-</main>
+</section>
 
 <style lang="scss">
-  main {
+  section {
     width: 500px;
     height: min-content;
-    margin: auto;
     background-color: var(--formColor);
     padding: 20px;
 

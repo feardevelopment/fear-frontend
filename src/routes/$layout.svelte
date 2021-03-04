@@ -4,5 +4,15 @@
 </script>
 
 <Header />
-<slot></slot>
+<main>
+	<slot></slot>
+</main>
 <Footer />
+
+<style lang="scss">
+	main {
+		display: grid;
+		justify-content: center;
+		align-content: center;
+	}
+</style>
