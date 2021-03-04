@@ -1,7 +1,7 @@
 <script lang="ts">
   let formData = { username: '', password: '' };
   let errors = { username: '', password: '', failedLogin: '' };
-  let status: { message: string|null, token: string|null };
+  let status: { type: string, code: number, result: string };
 
   const submitHandler = () => {
     let valid = true;
@@ -37,10 +37,10 @@
 
     status = await res.json();
 
-    if (status.message) {
+    if (status.code !== 200) {
       errors.failedLogin = 'Hibás felhasználónév vagy jelszó!';
     } else {
-      localStorage.setItem("FEAR_token", status.token);
+      localStorage.setItem("FEAR_token", status.result);
       window.location.href = "/home";  // This should work fine now, only for testing
       // Maybe should find an official route change within svelte-kit
     }
@@ -129,16 +129,16 @@ section {
     border: 2px solid red;
   }
 
-  p.error {
+  .error {
     color: red;
     font-weight: bold;
     font-size: 12px;
     margin-top: 5px;
+  }
 
-    &.login {
-      text-align: center;
-      font-size: 18px;
-      margin-top: 10px;
-    }
+  .login {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 10px;
   }
 </style>
