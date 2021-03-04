@@ -50,11 +50,11 @@
           white-space: nowrap;
           width: min-content;
           color: var(--textColor);
-	        background: #F0C808;
+	        background: var(--accentColor);
           text-decoration: none;
 
           &:hover {
-	          background: #F8D525;
+	          background: var(--secondaryAccentColor);
           }
           p {
             font-size: 3em;
