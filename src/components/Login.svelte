@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { HTTPResponse } from "static/types";
+import type { HTTPResponse } from "static/types";
 
   let formData = { username: '', password: '' };
   let errors = { username: '', password: '', failedLogin: '' };
