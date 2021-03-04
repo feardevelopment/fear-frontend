@@ -1,7 +1,9 @@
 <script lang="ts">
+  import type { HTTPResponse } from "static/types";
+
   let formData = { firstName: '', lastName: '', email: '', username: '', password: '' };
   let errors = { firstName: '', lastName: '', email: '', username: '', password: '' };
-  let status: { type: string, code: number, result: string };
+  let status: HTTPResponse;
   let successfulRegister = '';
 
   const submitHandler = () => {

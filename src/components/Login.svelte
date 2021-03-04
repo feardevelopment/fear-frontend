@@ -1,7 +1,9 @@
 <script lang="ts">
+  import type { HTTPResponse } from "static/types";
+
   let formData = { username: '', password: '' };
   let errors = { username: '', password: '', failedLogin: '' };
-  let status: { type: string, code: number, result: string };
+  let status: HTTPResponse;
 
   const submitHandler = () => {
     let valid = true;
