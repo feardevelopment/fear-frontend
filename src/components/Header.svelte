@@ -20,7 +20,6 @@
 <style lang="scss">
   header {
     height: 48px;
-    margin-bottom: 2.4em;
     background-color: rgba(0, 0, 0, 0.05);
   }
 
