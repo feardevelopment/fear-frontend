@@ -43,7 +43,7 @@ import type { HTTPResponse } from "static/types";
       errors.failedLogin = 'Hibás felhasználónév vagy jelszó!';
     } else {
       localStorage.setItem("FEAR_token", status.result);
-      window.location.href = "/home";  // This should work fine now, only for testing
+      window.location.href = "/training-pick";  // This should work fine now, only for testing
       // Maybe should find an official route change within svelte-kit
     }
   }
