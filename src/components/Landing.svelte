@@ -2,17 +2,15 @@
 </script>
 
 
-<main>
-  <section>
-    <article>
-      <h1>A FEAR <em>(Fejlett Egyetemi Adminisztrációs Rendszer)</em> egy tetszőleges egyetem adminisztrálására lesz fejlesztve.</h1>
-      <p class="desc">A FEAR célja, hogy kényelmes, biztonságos és gyors adminisztrációt tegyen lehetővé minden felhasználó számára.</p>
-      <img src="5251.png" alt="University Graphics">
-      <a class="login-cta" href="/login"><p>Jelentkezzen be!</p></a>
-      <p class="register-text">Még nincs fiókja? Regisztráljon <a href="/register">itt!</a></p>
-    </article>
-  </section>
-</main>
+<section>
+  <article>
+    <h1>A FEAR <em>(Fejlett Egyetemi Adminisztrációs Rendszer)</em> egy tetszőleges egyetem adminisztrálására lesz fejlesztve.</h1>
+    <p class="desc">A FEAR célja, hogy kényelmes, biztonságos és gyors adminisztrációt tegyen lehetővé minden felhasználó számára.</p>
+    <img src="5251.png" alt="University Graphics">
+    <a class="login-cta" href="/login"><p>Jelentkezzen be!</p></a>
+    <p class="register-text">Még nincs fiókja? Regisztráljon <a href="/register">itt!</a></p>
+  </article>
+</section>
 
 <style lang="scss">
   section {
