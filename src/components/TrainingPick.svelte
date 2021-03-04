@@ -39,6 +39,7 @@
       <p>...waiting</p>
     {:then trainings} 
       <div>
+        <h1>Szak kiválasztása</h1>
         <label for="training">Szak:</label>
         <select bind:value="{training}" id="training">
         {#each trainings as training}
@@ -48,20 +49,55 @@
         {/each}
         </select>
       </div>
-      <button type="submit"></button>
+      <button type="submit">Tovább</button>
     {/await}
   </form>
 </section>
 
 <style lang="scss">
   section {
-    width: 500px;
+    text-align: left;
+    width: 420px;
     height: min-content;
+    padding: 20px 50px;
     background-color: var(--formColor);
-    padding: 20px;
+    border-radius: 8px;
 
-    label {
-      font-size: 25px;
+    h1 {
+      font-size: 28px;
+      margin-bottom: 25px;
+      letter-spacing: 2px;
+      text-align: center;
+    }
+
+    form {
+      label {
+        display: block;
+        margin: 15px 0 5px;
+        font-size: 18px;
+        letter-spacing: 1.2px;
+        opacity: 80%;
+      }
+
+      select {
+        font-size: 18px;
+        padding: 3px 8px;
+        border: 1.5px solid silver;
+        border-radius: 5px;
+        width: 100%;
+      }
+
+      button {
+        font-size: 22px;
+        letter-spacing: 1px;
+        margin-top: 25px;
+        padding: 10px 0;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+	      background: linear-gradient(225deg, var(--accentColor) 0%, var(--lightAccentColor) 100%);
+        width: 100%;
+      }
     }
   }
 </style>

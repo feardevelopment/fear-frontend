@@ -74,9 +74,7 @@ section {
     text-align: left;
     width: 420px;
     height: min-content;
-    max-width: 960px;
     padding: 20px 50px;
-    margin: 0 auto;
     background-color: var(--formColor);
     border-radius: 8px;
 
