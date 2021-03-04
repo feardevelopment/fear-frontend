@@ -3,7 +3,8 @@ module.exports = {
 	extends: '@sveltejs/snowpack-config',
 	plugins: ['@snowpack/plugin-typescript'],
 	mount: {
-		'src/components': '/_components'
+		'src/components': '/_components',
+		'static': '/_static'
 	},
 	alias: {
 		$components: './src/components'
