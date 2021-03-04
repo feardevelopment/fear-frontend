@@ -13,6 +13,7 @@ body {
 	position: relative;
 	min-width: 100%;
 	min-height: 100vh;
+	letter-spacing: 0.5px;
 }
 
 #svelte {

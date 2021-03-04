@@ -91,7 +91,6 @@ section {
         margin: 15px 0 5px;
         font-size: 18px;
         letter-spacing: 1.2px;
-        opacity: 80%;
       }
 
       input {
