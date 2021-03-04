@@ -118,7 +118,7 @@
     max-width: 960px;
     padding: 20px 50px;
     margin: 0 auto;
-    background-color: #EDEDED;
+    background-color: var(--formColor);
     border-radius: 8px;
 
     h1 {

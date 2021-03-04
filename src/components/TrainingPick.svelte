@@ -10,8 +10,8 @@
   promise = getTraining();
 
   async function sendTraining() {
-    const data = JSON.stringify({ userID: 'asd', training });
-    console.log(data);
+    /*const data = JSON.stringify({ userID: 'asd', training });
+    
     const res = await fetch("http://localhost:3000/user/training/new", {
       method: 'POST',
       body: data,
@@ -21,7 +21,7 @@
     })
 
     const status = await res.json();
-    console.log(status);
+    console.log(status);*/ 
   };
 </script>
 
@@ -48,7 +48,21 @@
         {/each}
         </select>
       </div>
+      <button type="submit"></button>
     {/await}
-    <button type="submit"></button>
   </form>
 </main>
+
+<style lang="scss">
+  main {
+    width: 500px;
+    height: min-content;
+    margin: auto;
+    background-color: var(--formColor);
+    padding: 20px;
+
+    label {
+      font-size: 25px;
+    }
+  }
+</style>
