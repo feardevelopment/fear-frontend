@@ -152,8 +152,12 @@
         cursor: pointer;
         border: none;
         border-radius: 5px;
-	      background: linear-gradient(225deg, var(--accentColor) 0%, var(--lightAccentColor) 100%);
         width: 100%;
+	      background: var(--accentColor);
+
+        &:hover {
+          background: var(--secondaryAccentColor);
+        }
       }
     }
 

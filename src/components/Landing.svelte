@@ -50,11 +50,11 @@
           white-space: nowrap;
           width: min-content;
           color: var(--textColor);
-	        background: linear-gradient(225deg, var(--accentColor) 0%, var(--secondaryAccentColor) 100%);
+	        background: #F0C808;
           text-decoration: none;
 
           &:hover {
-	          background: linear-gradient(180deg, var(--accentColor) 0%, var(--secondaryAccentColor) 100%);
+	          background: #F8D525;
           }
           p {
             font-size: 3em;
