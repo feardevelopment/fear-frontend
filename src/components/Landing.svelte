@@ -50,7 +50,7 @@
           white-space: nowrap;
           width: min-content;
           color: var(--textColor);
-	          background: linear-gradient(225deg, var(--accentColor) 0%, var(--secondaryAccentColor) 100%);
+	        background: linear-gradient(225deg, var(--accentColor) 0%, var(--secondaryAccentColor) 100%);
           text-decoration: none;
 
           &:hover {
