@@ -1,7 +1,8 @@
 <script lang="ts">
   let formData = { firstName: '', lastName: '', email: '', username: '', password: '' };
   let errors = { firstName: '', lastName: '', email: '', username: '', password: '' };
-  let message: string;
+  let status: { type: string, code: number, result: string };
+  let successfulRegister = '';
 
   const submitHandler = () => {
     let valid = true;
@@ -57,8 +58,17 @@
       }
     });
 
-    message = await res.json();
-    console.log(message);
+    status = await res.json();
+    
+    if (status.code !== 200) {
+      errors.username = 'Már létezik ilyen nevű felhasználó!';
+    } else {
+      successfulRegister = 'Sikeres bejelentkezés! Hamarosan átirányítjuk.';
+      setTimeout(() => {
+        window.location.href = "/login";  // This should work fine now, only for testing
+      // Maybe should find an official route change within svelte-kit
+      }, 2500);
+    }
   }
 </script>
 
@@ -92,6 +102,7 @@
         <input bind:value={formData.password} type="password" id="password" class:error-input="{errors.password}">
         <p class="error">{ errors.password }</p>
       </div>
+      <p class="success">{ successfulRegister }</p>
       <button type="submit">Regisztráljon most</button>
     </form>
     <p class="login-text">Már van felhasználója? Jelentkezzen be <a href="/login">itt!</a></p>
@@ -165,10 +176,17 @@
     border: 2px solid red;
   }
 
-  p.error {
+  .error {
     color: red;
     font-weight: bold;
     font-size: 12px;
     margin-top: 5px;
+  }
+
+  .success {
+    color: green;
+    text-align: center;
+    font-size: 18px;
+    margin-top: 10px;
   }
 </style>
