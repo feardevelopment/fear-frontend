@@ -109,7 +109,7 @@ section {
         cursor: pointer;
         border: none;
         border-radius: 5px;
-	      background: linear-gradient(225deg, var(--accentColor) 0%, var(--lightAccentColor) 100%);
+	      background: linear-gradient(225deg, var(--accentColor) 0%, var(--secondaryAccentColor) 100%);
         width: 100%;
       }
     }

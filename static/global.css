@@ -1,8 +1,8 @@
 :root {
 	--primaryColor: #E06542;
 	--secondaryColor: #FA9048;
-	--accentColor: #58E06A;
-	--lightAccentColor: #6DFF80;
+	--accentColor: #49DCB1;
+	--secondaryAccentColor: #49CCB6;
 	--footerColor: #242424d9;
 	--textColor: #242424;
 	--formColor: #EDEDED;
@@ -25,7 +25,7 @@ body {
 	font-size: 62.5%;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	line-height: 1.2;
-	background: linear-gradient(135deg, var(--primaryColor) 0%, var(--secondaryColor) 100%);
+	background: linear-gradient(135deg, var(--primaryColor) 40%, var(--secondaryColor) 90%);
 	color: var(--textColor);
 }
 

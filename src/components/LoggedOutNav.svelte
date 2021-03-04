@@ -13,10 +13,10 @@
       text-decoration: none;
 
       &.login-cta {
-        background-color: var(--accentColor);
+	      background: linear-gradient(225deg, var(--accentColor) 0%, var(--secondaryAccentColor) 100%);
 
         &:hover {
-          background-color: var(--lightAccentColor);
+	      background: linear-gradient(180deg, var(--accentColor) 0%, var(--secondaryAccentColor) 100%);
         }
       }
 
