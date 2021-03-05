@@ -1,8 +1,10 @@
 :root {
 	--primaryColor: #E06542;
 	--secondaryColor: #FA9048;
-	--accentColor: #66C2E1;
-	--secondaryAccentColor: #77C9E4;
+	--accentColor: #58E06A;
+	--secondaryAccentColor: #6DFF80;
+	/* --accentColor: #66C2E1;
+	--secondaryAccentColor: #77C9E4; */
 	--footerColor: #222230;
 	--textColor: #0A122A;
 	--formColor: #EDEDED;
