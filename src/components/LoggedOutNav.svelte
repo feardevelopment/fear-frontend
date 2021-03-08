@@ -13,10 +13,10 @@
       text-decoration: none;
 
       &.login-cta {
-        background-color: var(--accentColor);
+	      background: var(--accentColor);
 
         &:hover {
-          background-color: var(--lightAccentColor);
+	        background: var(--secondaryAccentColor);
         }
       }
 

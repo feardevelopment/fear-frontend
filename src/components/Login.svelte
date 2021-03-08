@@ -1,10 +1,13 @@
 <script lang="ts">
+import type { HTTPResponse } from "static/types";
+
   let formData = { username: '', password: '' };
-  let errors = { username: '', password: '' };
-  let message: object;
+  let errors = { username: '', password: '', failedLogin: '' };
+  let status: HTTPResponse;
 
   const submitHandler = () => {
     let valid = true;
+    errors.failedLogin = '';
 
     if (formData.username.trim().length < 1) {
       valid = false;
@@ -26,7 +29,7 @@
   }
 
   async function login() {
-    const res = await fetch('http://localhost:3000/login', {
+    const res = await fetch('http://localhost:3000/auth/login', {
       method: 'POST',
       body: JSON.stringify(formData),
       headers: {
@@ -34,8 +37,15 @@
       }
     });
 
-    message = (await res.json()).message;
-    console.log(message);
+    status = await res.json();
+
+    if (status.code !== 200) {
+      errors.failedLogin = 'Hibás felhasználónév vagy jelszó!';
+    } else {
+      localStorage.setItem("FEAR_token", status.result);
+      window.location.href = "/training-pick";  // This should work fine now, only for testing
+      // Maybe should find an official route change within svelte-kit
+    }
   }
 
 </script>
@@ -45,14 +55,15 @@
   <form on:submit|preventDefault={submitHandler}>
     <div>
       <label for="username">Felhasználónév:</label>
-      <input bind:value={formData.username} type="text" id="username" class:error-input="{errors.username}">
+      <input bind:value={formData.username} type="text" id="username" class:error-input="{errors.username || errors.failedLogin}">
       <p class="error">{ errors.username }</p>
     </div>
     <div>
       <label for="password">Jelszó:</label>
-      <input bind:value={formData.password} type="password" id="password" class:error-input="{errors.password}">
+      <input bind:value={formData.password} type="password" id="password" class:error-input="{errors.password || errors.failedLogin}">
       <p class="error">{ errors.password }</p>
     </div>
+    <p class="error login">{ errors.failedLogin }</p>
     <button type="submit">Bejelentkezés</button>
   </form>
   <p class="register-text">Még nincs felhasználója? Regisztráljon <a href="/register">itt!</a></p>
@@ -63,10 +74,8 @@ section {
     text-align: left;
     width: 420px;
     height: min-content;
-    max-width: 960px;
     padding: 20px 50px;
-    margin: 0 auto;
-    background-color: #EDEDED;
+    background-color: var(--formColor);
     border-radius: 8px;
 
     h1 {
@@ -82,7 +91,6 @@ section {
         margin: 15px 0 5px;
         font-size: 18px;
         letter-spacing: 1.2px;
-        opacity: 80%;
       }
 
       input {
@@ -100,8 +108,12 @@ section {
         cursor: pointer;
         border: none;
         border-radius: 5px;
-	      background: linear-gradient(225deg, var(--accentColor) 0%, var(--lightAccentColor) 100%);
         width: 100%;
+	      background: var(--accentColor);
+
+        &:hover {
+          background: var(--secondaryAccentColor);
+        }
       }
     }
 
@@ -120,10 +132,16 @@ section {
     border: 2px solid red;
   }
 
-  p.error {
+  .error {
     color: red;
     font-weight: bold;
     font-size: 12px;
     margin-top: 5px;
+  }
+
+  .login {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 10px;
   }
 </style>

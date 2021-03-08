@@ -1,7 +1,10 @@
 <script lang="ts">
+  import type { HTTPResponse } from "static/types";
+
   let formData = { firstName: '', lastName: '', email: '', username: '', password: '' };
   let errors = { firstName: '', lastName: '', email: '', username: '', password: '' };
-  let message: string;
+  let status: HTTPResponse;
+  let successfulRegister = '';
 
   const submitHandler = () => {
     let valid = true;
@@ -49,7 +52,7 @@
   }
 
   async function register() {
-    const res = await fetch('http://localhost:3000/register', {
+    const res = await fetch('http://localhost:3000/user/register', {
       method: 'POST',
       body: JSON.stringify(formData),
       headers: {
@@ -57,8 +60,17 @@
       }
     });
 
-    message = (await res.json()).message;
-    console.log(message);
+    status = await res.json();
+    
+    if (status.code !== 200) {
+      errors.username = 'Már létezik ilyen nevű felhasználó!';
+    } else {
+      successfulRegister = 'Sikeres bejelentkezés! Hamarosan átirányítjuk.';
+      setTimeout(() => {
+        window.location.href = "/login";  // This should work fine now, only for testing
+      // Maybe should find an official route change within svelte-kit
+      }, 2500);
+    }
   }
 </script>
 
@@ -92,6 +104,7 @@
         <input bind:value={formData.password} type="password" id="password" class:error-input="{errors.password}">
         <p class="error">{ errors.password }</p>
       </div>
+      <p class="success">{ successfulRegister }</p>
       <button type="submit">Regisztráljon most</button>
     </form>
     <p class="login-text">Már van felhasználója? Jelentkezzen be <a href="/login">itt!</a></p>
@@ -105,7 +118,7 @@
     max-width: 960px;
     padding: 20px 50px;
     margin: 0 auto;
-    background-color: #EDEDED;
+    background-color: var(--formColor);
     border-radius: 8px;
 
     h1 {
@@ -121,7 +134,6 @@
         margin: 15px 0 5px;
         font-size: 18px;
         letter-spacing: 1.2px;
-        opacity: 80%;
       }
 
       input {
@@ -139,8 +151,12 @@
         cursor: pointer;
         border: none;
         border-radius: 5px;
-	      background: linear-gradient(225deg, var(--accentColor) 0%, var(--lightAccentColor) 100%);
         width: 100%;
+	      background: var(--accentColor);
+
+        &:hover {
+          background: var(--secondaryAccentColor);
+        }
       }
     }
 
@@ -165,10 +181,17 @@
     border: 2px solid red;
   }
 
-  p.error {
+  .error {
     color: red;
     font-weight: bold;
     font-size: 12px;
     margin-top: 5px;
+  }
+
+  .success {
+    color: green;
+    text-align: center;
+    font-size: 18px;
+    margin-top: 10px;
   }
 </style>
