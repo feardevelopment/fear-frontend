@@ -1,6 +1,10 @@
 <script lang="ts">
+  import type { HTTPResponse } from "static/types";
+
   let training = '';
   let promise: Promise<string[]>;
+  let result = '';
+  let status: HTTPResponse;
 
   async function getTraining() {
     const res = await fetch("http://localhost:3000/studies/trainings/available");
@@ -10,18 +14,27 @@
   promise = getTraining();
 
   async function sendTraining() {
-    /*const data = JSON.stringify({ userID: 'asd', training });
+    const token = localStorage.getItem("FEAR_token");
+    const data = JSON.stringify({ token, training });
     
     const res = await fetch("http://localhost:3000/user/training/new", {
       method: 'POST',
       body: data,
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
       }
     })
 
-    const status = await res.json();
-    console.log(status);*/ 
+    status = await res.json();
+    result = status.result;
+
+    if (status.code === 200) {
+      setTimeout(() => {
+        window.location.href = "/home";  // This should work fine now, only for testing
+      // Maybe should find an official route change within svelte-kit
+      }, 1500);
+    }
   };
 </script>
 
@@ -52,6 +65,7 @@
       <button type="submit">Tovább</button>
     {/await}
   </form>
+  <p>{result}</p>
 </section>
 
 <style lang="scss">
@@ -68,6 +82,12 @@
       margin-bottom: 25px;
       letter-spacing: 2px;
       text-align: center;
+    }
+
+    p {
+      font-size: 20px;
+      text-align: center;
+      margin-top: 10px;
     }
 
     form {
