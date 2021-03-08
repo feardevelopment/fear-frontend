@@ -1,7 +1,3 @@
-<script lang="ts">
-</script>
-
-
 <section>
   <article>
     <h1>A FEAR <em>(Fejlett Egyetemi Adminisztrációs Rendszer)</em> egy tetszőleges egyetem adminisztrálására lesz fejlesztve.</h1>

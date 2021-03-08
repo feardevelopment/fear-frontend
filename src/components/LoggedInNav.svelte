@@ -1,7 +1,3 @@
-<script lang="ts">
-
-</script>
-
 <ul>
   <li><a href="/"><span>Saját adatok</span></a></li>
   <li><a href="/"><span>Tanulmányok</span></a></li>

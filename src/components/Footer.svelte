@@ -1,7 +1,3 @@
-<script lang="ts">
-
-</script>
-
 <footer>
   <p>© 2021 FEARDevelopment</p>
 </footer>
