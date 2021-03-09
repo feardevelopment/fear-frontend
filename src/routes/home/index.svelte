@@ -1,5 +1,6 @@
 <script lang="ts">
-  import type { EMail } from "static/types";
+  import Email from "$components/Email.svelte";
+import type { EMail } from "static/types";
   let promise: Promise<EMail[]>;
 
   promise = getEmails();
@@ -17,13 +18,16 @@
     <p>Emailek betöltése...</p>
   {:then emails}
     {#if emails.length}
-      {#each emails as email}
-        <p>{email.from}</p>
-        <p>{email.subject}</p>
-        <p>{email.date}</p>
-        <p>{email.read}</p>
-        <p>{email.uid}</p>
-      {/each}
+      <table>
+        <tr>
+          <th>Kitől</th>
+          <th>Tárgy</th>
+          <th>Dátum</th>
+        </tr>
+        {#each emails as email}
+          <Email {email}/>
+        {/each}
+      </table>
     {:else}
       <p>Nincsenek megjeleníthető emailek!</p>
     {/if}
