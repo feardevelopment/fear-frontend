@@ -24,7 +24,7 @@
 
     td {
       border-bottom: 1px solid var(--textColor);
-      font-size: 14px;
+      font-size: 1.4rem;
       padding: 5px;
       font-weight: 500;
 
@@ -41,11 +41,6 @@
 
       &.date {
         width: 15ch;
-      }
-
-      &:hover {
-        overflow: visible;
-        white-space: pre-wrap;
       }
     }
 

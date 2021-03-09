@@ -78,14 +78,14 @@
     border-radius: 8px;
 
     h1 {
-      font-size: 28px;
+      font-size: 2.8rem;
       margin-bottom: 25px;
       letter-spacing: 2px;
       text-align: center;
     }
 
     p {
-      font-size: 20px;
+      font-size: 2.0rem;
       text-align: center;
       margin-top: 10px;
     }
@@ -94,13 +94,13 @@
       label {
         display: block;
         margin: 15px 0 5px;
-        font-size: 18px;
+        font-size: 1.8rem;
         letter-spacing: 1.2px;
         opacity: 80%;
       }
 
       select {
-        font-size: 18px;
+        font-size: 1.8rem;
         padding: 3px 8px;
         border: 1.5px solid silver;
         border-radius: 5px;
@@ -108,7 +108,7 @@
       }
 
       button {
-        font-size: 22px;
+        font-size: 2.2rem;
         letter-spacing: 1px;
         margin-top: 25px;
         padding: 10px 0;

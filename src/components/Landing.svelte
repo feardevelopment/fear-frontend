@@ -14,17 +14,17 @@
 
     article {
       display: grid;
-      column-gap: 3em;
-      row-gap: 2.5em;
+      column-gap: 3rem;
+      row-gap: 2.5rem;
       grid-template-columns: 2fr 3fr;
 
       h1 {
-        font-size: 4.5em;
+        font-size: 4.5rem;
         grid-area: 1 / 1 / 2 / 2; 
       }
 
       p {
-        font-size: 2.7em;
+        font-size: 2.7rem;
         font-weight: 600;
 
         &.desc {
@@ -32,9 +32,9 @@
         }
 
         &.register-text {
-          font-size: 1.5em;
+          font-size: 1.5rem;
           grid-area: 4 / 1 / 5 / 2;
-          margin-top: -1.2em;
+          margin-top: -1.2rem;
         }
       }
 
@@ -54,7 +54,7 @@
           }
           
           p {
-            font-size: 3em;
+            font-size: 3rem;
           }
         }
       }

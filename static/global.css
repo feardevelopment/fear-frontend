@@ -16,6 +16,7 @@ body {
 	min-width: 100%;
 	min-height: 100vh;
 	letter-spacing: 0.5px;
+	font-size: 62.5%;
 }
 
 #svelte {
@@ -25,7 +26,6 @@ body {
 	min-width: 100%;
 	min-height: 100vh;
 
-	font-size: 62.5%;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	line-height: 1.2;
 	background: linear-gradient(135deg, var(--primaryColor) 40%, var(--secondaryColor) 90%);

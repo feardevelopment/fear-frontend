@@ -122,7 +122,7 @@
     border-radius: 8px;
 
     h1 {
-      font-size: 28px;
+      font-size: 2.8rem;
       margin-bottom: 25px;
       letter-spacing: 2px;
       text-align: center;
@@ -132,19 +132,19 @@
       label {
         display: block;
         margin: 15px 0 5px;
-        font-size: 18px;
+        font-size: 1.8rem;
         letter-spacing: 1.2px;
       }
 
       input {
-        font-size: 18px;
+        font-size: 1.8rem;
         padding: 3px 8px;
         border: 1.5px solid silver;
         border-radius: 5px;
       }
 
       button {
-        font-size: 22px;
+        font-size: 2.2rem;
         letter-spacing: 1px;
         margin-top: 25px;
         padding: 10px 0;
@@ -161,7 +161,7 @@
     }
 
     .login-text {
-      font-size: 12px;
+      font-size: 1.2rem;
       margin-top: 10px;
       text-align: center;
     }
@@ -184,14 +184,14 @@
   .error {
     color: red;
     font-weight: bold;
-    font-size: 12px;
+    font-size: 1.2rem;
     margin-top: 5px;
   }
 
   .success {
     color: green;
     text-align: center;
-    font-size: 18px;
+    font-size: 1.8rem;
     margin-top: 10px;
   }
 </style>

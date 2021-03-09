@@ -68,11 +68,11 @@
 
     .content-wrapper {
       z-index: 10;
-      border-radius: 0.3rem;
+      border-radius: 0.5rem;
       background-color: white;
       overflow: hidden;
-      padding: 10px;
-      font-size: 14px;
+      padding: 1rem;
+      font-size: 1.4rem;
 
       header {
         p {

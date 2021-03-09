@@ -44,7 +44,7 @@
     h2 {
       text-align: center;
       margin-bottom: 20px;
-      font-size: 28px;
+      font-size: 2.8rem;
     }
 
     table {
@@ -54,7 +54,7 @@
       border-spacing: 0;
 
       th {
-        font-size: 18px;
+        font-size: 1.8rem;
         border-bottom: 2.5px solid var(--textColor);
       }
     }

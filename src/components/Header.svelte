@@ -24,14 +24,14 @@
       text-decoration: none;
 
       span {
-        font-size: 3em;
+        font-size: 3rem;
         font-weight: 600;
         letter-spacing: 0.2em;
       }
     }
 
     nav {
-      font-size: 2em;
+      font-size: 2rem;
     }
   }
 </style>
