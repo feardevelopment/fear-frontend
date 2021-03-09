@@ -1,7 +1,7 @@
-<script lang="ts">
-  import LoggedOutNav from "./LoggedOutNav.svelte";
-  import LoggedInNav from "./LoggedInNav.svelte";
-  let loggedIn: boolean = false;
+<script>
+	import LoggedInNav from '$components/LoggedInNav.svelte';
+	import LoggedOutNav from '$components/LoggedOutNav.svelte';
+	let loggedIn = false;
 </script>
 
 <header>
@@ -32,11 +32,12 @@
 
     a {
       text-decoration: none;
+
       span {
-      font-size: 3em;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-    }
+        font-size: 3em;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+      }
     }
 
     nav {

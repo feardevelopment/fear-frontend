@@ -9,7 +9,7 @@
 </main>
 <Footer />
 
-<style lang="scss">
+<style>
 	main {
 		display: grid;
 		justify-content: center;

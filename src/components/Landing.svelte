@@ -52,6 +52,7 @@
           &:hover {
 	          background: var(--secondaryAccentColor);
           }
+          
           p {
             font-size: 3em;
           }
