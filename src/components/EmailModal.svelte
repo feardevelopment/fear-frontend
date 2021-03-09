@@ -11,7 +11,7 @@
   function close() {
     isOpen = false;
   }
-  
+
   promise = getMail();
 
   async function getMail(){
@@ -29,15 +29,15 @@
   {:then mail} 
   <div class="content-wrapper">
     <header>
-      <span>{mail.from}</span>
-      <span>{mail.subject}</span>
-      <span>{mail.date}</span>
+      <p><span>Küldő:</span> {mail.from}</p>
+      <p><span>Tárgy:</span> {mail.subject}</p>
+      <p><span>Érkezés dátuma:</span> {mail.date}</p>
     </header>
     <section class="content">
       <p>{mail.body}</p>
     </section>
     <footer>
-      
+      <button on:click="{close}">Bezárás</button>
     </footer>
   </div>
   {/await}
@@ -65,14 +65,31 @@
 
     .content-wrapper {
       z-index: 10;
-      max-width: 70vw;
       border-radius: 0.3rem;
       background-color: white;
       overflow: hidden;
-    }
+      padding: 10px;
+      font-size: 14px;
 
-    .content {
-      padding: 50px;
+      header {
+        p {
+          span {
+            font-weight: bold;
+          }
+        }
+      }
+
+      .content {
+        border: 1px solid var(--textColor);
+        padding: 10px;
+        max-width: 70ch;
+        margin: 10px 0;
+
+        p {
+          word-spacing: 1px;
+          line-height: 1.3;
+        }
+      }
     }
   }
 </style>

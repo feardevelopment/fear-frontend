@@ -2,7 +2,7 @@
   import type { EMailHeader } from 'static/types';
   import EmailModal from '$components/EmailModal.svelte';
   export let email: EMailHeader;
-  let emailModal;
+  let emailModal: EmailModal;
   const date = new Date(email.date);
 
   function openMail() {
@@ -12,9 +12,9 @@
 </script>
 
 <tr on:click="{openMail}" class:read="{email.read}">
-  <td>{email.from}</td>
+  <td class="from">{email.from}</td>
   <td class="subject">{email.subject}</td>
-  <td>{date.toLocaleString()}</td>
+  <td class="date">{date.toLocaleString()}</td>
 </tr>
 <svelte:component this={EmailModal} bind:this={emailModal} emailUid={email.uid}/>
 
@@ -28,11 +28,24 @@
       padding: 5px;
       font-weight: 500;
 
+      &.from {
+        width: 30ch;
+      }
+
       &.subject {
-        max-width: 50ch;
+        width: 50ch;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
+      }
+
+      &.date {
+        width: 15ch;
+      }
+
+      &:hover {
+        overflow: visible;
+        white-space: pre-wrap;
       }
     }
 

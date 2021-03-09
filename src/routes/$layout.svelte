@@ -23,5 +23,6 @@
 		display: grid;
 		justify-content: center;
 		align-content: center;
+    margin: 0 20px;
 	}
 </style>

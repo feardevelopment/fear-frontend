@@ -39,6 +39,7 @@
     background-color: var(--formColor);
     border: 1px solid var(--textColor);
     padding: 20px;
+    width: 100%;
 
     h2 {
       text-align: center;
@@ -49,7 +50,7 @@
     table {
       width: 100%;
       border: 1px solid var(--textColor);
-      padding: 10px;
+      padding: 5px 10px 10px;
       border-spacing: 0;
 
       th {
