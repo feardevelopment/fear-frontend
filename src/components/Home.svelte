@@ -1,7 +1,7 @@
 <script lang="ts">
   import Email from '$components/Email.svelte';
-  import type { EMail } from 'static/types';
-  let promise: Promise<EMail[]>;
+  import type { EMailHeader } from 'static/types';
+  let promise: Promise<EMailHeader[]>;
 
   promise = getEmails();
 
