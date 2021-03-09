@@ -1,9 +1,18 @@
 <script>
 	import Footer from '$components/Footer.svelte';
 	import Header from '$components/Header.svelte';
+	import LoggedInNav from '$components/LoggedInNav.svelte';
+	import LoggedOutNav from '$components/LoggedOutNav.svelte';
+	let loggedIn = false;
 </script>
 
-<Header />
+<Header >
+	{#if loggedIn}
+		<LoggedInNav />
+	{:else}
+		<LoggedOutNav />
+	{/if}
+</Header>
 <main>
 	<slot></slot>
 </main>

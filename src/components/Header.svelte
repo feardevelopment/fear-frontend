@@ -8,11 +8,7 @@
   <div>
     <a href="/"><span>FEAR</span></a>
     <nav>
-      {#if loggedIn}
-        <LoggedInNav />
-      {:else}
-        <LoggedOutNav />
-      {/if}
+      <slot></slot>
     </nav>
   </div>
 </header>
