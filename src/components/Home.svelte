@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Email from "$components/Email.svelte";
-  import type { EMail } from "static/types";
+  import Email from '$components/Email.svelte';
+  import type { EMail } from 'static/types';
   let promise: Promise<EMail[]>;
 
   promise = getEmails();
@@ -33,3 +33,29 @@
     {/if}
   {/await}
 </section>
+
+<style lang="scss">
+  section {
+    background-color: var(--formColor);
+    border: 1px solid var(--textColor);
+    padding: 20px;
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+
+    table {
+      width: 100%;
+      border: 1px solid var(--textColor);
+      padding: 10px;
+      border-spacing: 0;
+
+      th {
+        font-size: 18px;
+        border-bottom: 2.5px solid var(--textColor);
+      }
+    }
+  }
+</style>

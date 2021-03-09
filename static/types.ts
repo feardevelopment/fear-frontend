@@ -7,7 +7,7 @@ export type HTTPResponse = {
 export type EMail = {
   from: string,
   subject: string,
-  date: Date,
+  date: string,
   read: boolean,
   uid: string
 }

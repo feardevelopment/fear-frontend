@@ -1,20 +1,45 @@
 <script lang="ts">
-  import type { EMail } from "static/types";
+  import type { EMail } from 'static/types';
   export let email: EMail;
+  const date = new Date(email.date);
+
+  function openMail() {
+    email.read = true;
+  }
 </script>
 
-<tr class:read="{email.read}">
+<tr on:click="{openMail}" class:read="{email.read}">
   <td>{email.from}</td>
-  <td>{email.subject}</td>
-  <td>{email.date}</td>
+  <td class="subject">{email.subject}</td>
+  <td>{date.toLocaleString()}</td>
 </tr>
 
 <style lang="scss">
   tr {
-    border: 1px solid red;
+    cursor: pointer;
+
+    td {
+      border-bottom: 1px solid var(--textColor);
+      font-size: 14px;
+      padding: 5px;
+      font-weight: 500;
+
+      &.subject {
+        max-width: 50ch;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
 
     &.read {
-      border: 2px solid green;
+      td {
+        font-weight: 400;
+      }
+    }
+
+    &:hover {
+      background-color: #E0E0E0;
     }
   }
 </style>
