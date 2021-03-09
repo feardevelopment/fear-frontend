@@ -3,3 +3,11 @@ export type HTTPResponse = {
   code: number,
   result: string
 }
+
+export type EMail = {
+  from: string,
+  subject: string,
+  date: Date,
+  read: boolean,
+  uid: string
+}

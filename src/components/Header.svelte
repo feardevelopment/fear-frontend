@@ -1,9 +1,3 @@
-<script>
-	import LoggedInNav from '$components/LoggedInNav.svelte';
-	import LoggedOutNav from '$components/LoggedOutNav.svelte';
-	let loggedIn = false;
-</script>
-
 <header>
   <div>
     <a href="/"><span>FEAR</span></a>
