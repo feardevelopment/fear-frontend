@@ -83,12 +83,13 @@
       }
 
       .content {
-        max-width: 70ch;
+        max-width: 65ch;
         height: 200px;
         overflow: scroll;
-        padding: 10px;
+        padding: 1.5rem;
         margin: 10px 0;
         border: 1px solid var(--textColor);
+        font-size: 1.8rem;
 
         p {
           word-spacing: 1px;
