@@ -17,7 +17,10 @@
   async function getMail(){
     const res = await fetch('http://localhost:3000/user/mailbox/' + emailUid);
 
-    return (await res.json()).result;
+    const result = (await res.json()).result;
+    result.date = (new Date(result.date)).toLocaleString();
+
+    return result;
   }
 </script>
 
@@ -80,10 +83,12 @@
       }
 
       .content {
-        border: 1px solid var(--textColor);
-        padding: 10px;
         max-width: 70ch;
+        height: 200px;
+        overflow: scroll;
+        padding: 10px;
         margin: 10px 0;
+        border: 1px solid var(--textColor);
 
         p {
           word-spacing: 1px;

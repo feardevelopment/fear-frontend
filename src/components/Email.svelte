@@ -3,7 +3,7 @@
   import EmailModal from '$components/EmailModal.svelte';
   export let email: EMailHeader;
   let emailModal: EmailModal;
-  const date = new Date(email.date);
+  email.date = (new Date(email.date)).toLocaleString();
 
   function openMail() {
     email.read = true;
@@ -14,7 +14,7 @@
 <tr on:click="{openMail}" class:read="{email.read}">
   <td class="from">{email.from}</td>
   <td class="subject">{email.subject}</td>
-  <td class="date">{date.toLocaleString()}</td>
+  <td class="date">{email.date}</td>
 </tr>
 <svelte:component this={EmailModal} bind:this={emailModal} emailUid={email.uid}/>
 
