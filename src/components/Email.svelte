@@ -1,10 +1,13 @@
 <script lang="ts">
-  import type { EMail } from 'static/types';
-  export let email: EMail;
+  import type { EMailHeader } from 'static/types';
+  import EmailModal from '$components/EmailModal.svelte';
+  export let email: EMailHeader;
+  let emailModal;
   const date = new Date(email.date);
 
   function openMail() {
     email.read = true;
+    emailModal.open();
   }
 </script>
 
@@ -13,6 +16,7 @@
   <td class="subject">{email.subject}</td>
   <td>{date.toLocaleString()}</td>
 </tr>
+<svelte:component this={EmailModal} bind:this={emailModal} emailUid={email.uid}/>
 
 <style lang="scss">
   tr {
