@@ -23,10 +23,11 @@
     cursor: pointer;
 
     td {
-      border-bottom: 1px solid var(--textColor);
       font-size: 1.4rem;
-      padding: 5px;
       font-weight: 500;
+      line-height: 1.3;
+      border-bottom: 1px solid var(--textColor);
+      padding: 5px;
 
       &.from {
         width: 30ch;
