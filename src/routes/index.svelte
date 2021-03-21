@@ -1,5 +1,9 @@
+<svelte:head>
+	<title>Welcome</title>
+</svelte:head>
+
 <script>
-	import Landing from '$components/Landing.svelte';
+	import Landing from '$lib/Landing.svelte';
 </script>
 
 <Landing />

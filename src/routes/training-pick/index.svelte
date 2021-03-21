@@ -1,5 +1,5 @@
 <script lang="ts">
-  import TrainingPick from '$components/TrainingPick.svelte';
+  import TrainingPick from '$lib/TrainingPick.svelte';
 </script>
 
 <TrainingPick />
