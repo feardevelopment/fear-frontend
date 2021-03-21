@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { EMailHeader } from 'static/types';
-  import EmailModal from '$components/EmailModal.svelte';
+  import EmailModal from '$lib/EmailModal.svelte';
   export let email: EMailHeader;
   let emailModal: EmailModal;
   email.date = (new Date(email.date)).toLocaleString();
