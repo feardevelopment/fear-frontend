@@ -1,1 +1,5 @@
-<p>This is home</p>
+<script>
+  import Home from '$components/Home.svelte';
+</script>
+
+<Home />

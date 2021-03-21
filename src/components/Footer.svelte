@@ -1,7 +1,3 @@
-<script lang="ts">
-
-</script>
-
 <footer>
   <p>© 2021 FEARDevelopment</p>
 </footer>
@@ -14,7 +10,7 @@
     padding: 1em 0;
 
     p {
-      font-size: 1.2em;
+      font-size: 1.2rem;
     }
   }
 </style>

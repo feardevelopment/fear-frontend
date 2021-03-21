@@ -1,7 +1,3 @@
-<script lang="ts">
-
-</script>
-
 <ul class="nav">
   <li><a class="register-cta" href="/register"><span>Regisztráció</span></a></li>
   <li><a class="login-cta" href="/login"><span>Bejelentkezés</span></a></li>

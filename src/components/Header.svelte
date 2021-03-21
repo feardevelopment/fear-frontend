@@ -1,18 +1,8 @@
-<script lang="ts">
-  import LoggedOutNav from "./LoggedOutNav.svelte";
-  import LoggedInNav from "./LoggedInNav.svelte";
-  let loggedIn: boolean = false;
-</script>
-
 <header>
   <div>
     <a href="/"><span>FEAR</span></a>
     <nav>
-      {#if loggedIn}
-        <LoggedInNav />
-      {:else}
-        <LoggedOutNav />
-      {/if}
+      <slot></slot>
     </nav>
   </div>
 </header>
@@ -32,15 +22,16 @@
 
     a {
       text-decoration: none;
+
       span {
-      font-size: 3em;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-    }
+        font-size: 3rem;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+      }
     }
 
     nav {
-      font-size: 2em;
+      font-size: 2rem;
     }
   }
 </style>
