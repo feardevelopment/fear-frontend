@@ -1,8 +1,8 @@
 <script>
-	import Footer from '$components/Footer.svelte';
-	import Header from '$components/Header.svelte';
-	import LoggedInNav from '$components/LoggedInNav.svelte';
-	import LoggedOutNav from '$components/LoggedOutNav.svelte';
+	import Footer from '$lib/Footer.svelte';
+	import Header from '$lib/Header.svelte';
+	import LoggedInNav from '$lib/LoggedInNav.svelte';
+	import LoggedOutNav from '$lib/LoggedOutNav.svelte';
 	let loggedIn = false;
 </script>
 

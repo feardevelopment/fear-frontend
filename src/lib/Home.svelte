@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Email from '$components/Email.svelte';
+  import Email from '$lib/Email.svelte';
   import type { EMailHeader } from 'static/types';
   let promise: Promise<EMailHeader[]>;
 
