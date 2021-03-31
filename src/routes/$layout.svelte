@@ -22,7 +22,6 @@
 	main {
 		display: grid;
 		justify-content: center;
-		align-content: center;
-		margin: 0 20px;
+		margin: 3rem 2rem;
 	}
 </style>

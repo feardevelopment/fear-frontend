@@ -1,15 +1,14 @@
 <script lang="ts">
   import type { EMailBody } from "static/types";
+  import { createEventDispatcher } from "svelte";
   export let emailUid: string;
-  let isOpen = false;
-  let promise: Promise<EMailBody> 
-
-  export function open() {
-    isOpen = true;
-  }
-
-  function close() {
-    isOpen = false;
+  let promise: Promise<EMailBody>;
+  const dispatch = createEventDispatcher();
+  
+  export function close() {
+    dispatch('close', {
+      text: 'closed'
+    });
   }
 
   promise = getMail();
@@ -24,7 +23,6 @@
   }
 </script>
 
-{#if isOpen}
 <div class="modal">
   <div class="backdrop" on:click={close} />
   {#await promise}
@@ -45,7 +43,6 @@
   </div>
   {/await}
 </div>
-{/if}
 
 <style lang="scss">
   .modal {

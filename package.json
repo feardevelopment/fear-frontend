@@ -2,7 +2,7 @@
 	"name": "feardevelopment-ssr",
 	"version": "0.0.1",
 	"scripts": {
-		"dev": "svelte-kit dev",
+		"dev": "svelte-kit dev -p 4200",
 		"build": "svelte-kit build",
 		"start": "svelte-kit start"
 	},

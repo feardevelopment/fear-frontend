@@ -2,21 +2,27 @@
   import type { EMailHeader } from 'static/types';
   import EmailModal from '$lib/EmailModal.svelte';
   export let email: EMailHeader;
-  let emailModal: EmailModal;
+  let show = false;
   email.date = (new Date(email.date)).toLocaleString();
 
-  function openMail() {
+  function openModal() {
     email.read = true;
-    emailModal.open();
+    show = true;
+  }
+
+  function closeModal() {
+    show = false;
   }
 </script>
 
-<tr on:click="{openMail}" class:read="{email.read}">
+<tr on:click="{openModal}" class:read="{email.read}">
   <td class="from">{email.from}</td>
   <td class="subject">{email.subject}</td>
   <td class="date">{email.date}</td>
 </tr>
-<svelte:component this={EmailModal} bind:this={emailModal} emailUid={email.uid}/>
+{#if show}
+  <EmailModal emailUid="{email.uid}" on:close="{closeModal}" />
+{/if}
 
 <style lang="scss">
   tr {
