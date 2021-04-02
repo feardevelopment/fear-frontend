@@ -39,10 +39,10 @@
 
 <div class="modal">
   <div class="backdrop" on:click={close} />
+  <div class="content-wrapper">
   {#await promise}
     <p>Email betöltése...</p>
   {:then mail} 
-  <div class="content-wrapper">
     <section class="content-header">
       <p><span>Küldő:</span> {mail.from}</p>
       <p><span>Tárgy:</span> {mail.subject}</p>
@@ -54,8 +54,8 @@
     <section class="content-footer">
       <button on:click="{close}">Bezárás</button>
     </section>
-  </div>
   {/await}
+  </div>
 </div>
 
 <style lang="scss">
