@@ -45,7 +45,13 @@
       errors.failedLogin = 'Hibás felhasználónév vagy jelszó!';
     } else {
       goto('training-pick').then(() => sessionStorage.setItem('FEAR_token', status.result));
-      session.set(true);
+      session.update(value => {
+        return value = {
+          user: {
+            loggedIn: true
+          }
+        }
+      });
     }
   }
 

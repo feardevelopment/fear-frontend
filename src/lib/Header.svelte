@@ -5,10 +5,19 @@
 	import { session } from '$app/stores';
   import { onDestroy } from 'svelte';
 	let loggedIn = false;
-  const sub = session.subscribe(value => loggedIn = value);
+  const sub = session.subscribe(value => {
+    loggedIn = value.user?.loggedIn;
+  });
 	
 	if (browser) {
-		session.set(sessionStorage.getItem('FEAR_token') ? true : false);
+    const token = sessionStorage.getItem('FEAR_token') !== null ? true : false;
+		session.update(value => {
+      return value = {
+        user: {
+          loggedIn: token
+        }
+      }
+    });
 	}
 
   onDestroy(sub);

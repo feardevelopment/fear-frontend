@@ -4,7 +4,13 @@
 
   function logOut() {
     goto('/').then(() => sessionStorage.removeItem('FEAR_token'));
-    session.set(false);
+    session.update(value => {
+        return value = {
+          user: {
+            loggedIn: false
+          }
+        }
+    });
   }
 </script>
 
@@ -22,6 +28,7 @@
 
 <style lang="scss">
   ul {
+    display: inline;
     li {
       display: inline;
     }
