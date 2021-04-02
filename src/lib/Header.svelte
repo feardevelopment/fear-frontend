@@ -1,8 +1,25 @@
+<script lang="ts">
+	import LoggedInNav from '$lib/LoggedInNav.svelte';
+	import LoggedOutNav from '$lib/LoggedOutNav.svelte';
+	import { browser } from '$app/env';
+	import { session } from '$app/stores';
+	let loggedIn = false;
+	
+	if (browser) {
+    session.subscribe(value => loggedIn = value);
+		session.set(sessionStorage.getItem('FEAR_token') ? true : false);
+	}
+</script>
+
 <header>
   <div>
     <a href="/"><span>FEAR</span></a>
     <nav>
-      <slot></slot>
+      {#if loggedIn}
+        <LoggedInNav />
+      {:else}
+        <LoggedOutNav />
+      {/if}
     </nav>
   </div>
 </header>

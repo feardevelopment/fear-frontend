@@ -1,5 +1,7 @@
 <script lang="ts">
-import type { HTTPResponse } from "static/types";
+  import type { HTTPResponse } from "static/types";
+  import { session } from '$app/stores';
+  import { goto } from '$app/navigation';
 
   let formData = { username: '', password: '' };
   let errors = { username: '', password: '', failedLogin: '' };
@@ -24,6 +26,7 @@ import type { HTTPResponse } from "static/types";
     }
 
     if (valid) {
+      session.set(true);
       login();
     }
   }
@@ -42,9 +45,7 @@ import type { HTTPResponse } from "static/types";
     if (status.code !== 200) {
       errors.failedLogin = 'Hibás felhasználónév vagy jelszó!';
     } else {
-      localStorage.setItem("FEAR_token", status.result);
-      window.location.href = "/training-pick";  // This should work fine now, only for testing
-      // Maybe should find an official route change within svelte-kit
+      goto('training-pick').then(() => sessionStorage.setItem('FEAR_token', status.result))
     }
   }
 
