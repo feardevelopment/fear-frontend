@@ -26,7 +26,6 @@
     }
 
     if (valid) {
-      session.set(true);
       login();
     }
   }
@@ -45,7 +44,8 @@
     if (status.code !== 200) {
       errors.failedLogin = 'Hibás felhasználónév vagy jelszó!';
     } else {
-      goto('training-pick').then(() => sessionStorage.setItem('FEAR_token', status.result))
+      goto('training-pick').then(() => sessionStorage.setItem('FEAR_token', status.result));
+      session.set(true);
     }
   }
 

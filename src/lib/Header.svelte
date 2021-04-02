@@ -13,7 +13,7 @@
 
 <header>
   <div>
-    <a href="/"><span>FEAR</span></a>
+    <a href="{loggedIn ? '/home' : '/'}"><span>FEAR</span></a>
     <nav>
       {#if loggedIn}
         <LoggedInNav />
