@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { HTTPResponse } from "static/types";
+  import { goto } from '$app/navigation';
 
   let training = '';
   let promise: Promise<string[]>;
@@ -14,7 +15,7 @@
   promise = getTraining();
 
   async function sendTraining() {
-    const token = localStorage.getItem("FEAR_token");
+    const token = sessionStorage.getItem("FEAR_token");
     const data = JSON.stringify({ token, training });
     
     const res = await fetch("http://localhost:3000/user/training/new", {
@@ -31,8 +32,7 @@
 
     if (status.code === 200) {
       setTimeout(() => {
-        window.location.href = "/home";  // This should work fine now, only for testing
-      // Maybe should find an official route change within svelte-kit
+        goto('home');
       }, 1500);
     }
   };

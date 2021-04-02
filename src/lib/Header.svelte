@@ -1,8 +1,37 @@
+<script lang="ts">
+	import LoggedInNav from '$lib/LoggedInNav.svelte';
+	import LoggedOutNav from '$lib/LoggedOutNav.svelte';
+	import { browser } from '$app/env';
+	import { session } from '$app/stores';
+  import { onDestroy } from 'svelte';
+	let loggedIn = false;
+  const sub = session.subscribe(value => {
+    loggedIn = value.user?.loggedIn;
+  });
+	
+	if (browser) {
+    const token = sessionStorage.getItem('FEAR_token') !== null ? true : false;
+		session.update(value => {
+      return value = {
+        user: {
+          loggedIn: token
+        }
+      }
+    });
+	}
+
+  onDestroy(sub);
+</script>
+
 <header>
   <div>
-    <a href="/"><span>FEAR</span></a>
+    <a href="{loggedIn ? '/home' : '/'}"><span>FEAR</span></a>
     <nav>
-      <slot></slot>
+      {#if loggedIn}
+        <LoggedInNav />
+      {:else}
+        <LoggedOutNav />
+      {/if}
     </nav>
   </div>
 </header>

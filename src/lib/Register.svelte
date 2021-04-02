@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { HTTPResponse } from "static/types";
+  import { goto } from '$app/navigation';
 
   let formData = { firstName: '', lastName: '', email: '', username: '', password: '' };
   let errors = { firstName: '', lastName: '', email: '', username: '', password: '' };
@@ -67,8 +68,7 @@
     } else {
       successfulRegister = 'Sikeres bejelentkezés! Hamarosan átirányítjuk.';
       setTimeout(() => {
-        window.location.href = "/login";  // This should work fine now, only for testing
-      // Maybe should find an official route change within svelte-kit
+        goto('login');
       }, 2500);
     }
   }
