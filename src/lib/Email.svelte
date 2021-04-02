@@ -2,21 +2,32 @@
   import type { EMailHeader } from 'static/types';
   import EmailModal from '$lib/EmailModal.svelte';
   export let email: EMailHeader;
-  let emailModal: EmailModal;
+  let show = false;
+  let cachedEmail = {};
   email.date = (new Date(email.date)).toLocaleString();
 
-  function openMail() {
+  function openModal() {
     email.read = true;
-    emailModal.open();
+    show = true;
+  }
+
+  function closeModal() {
+    show = false;
+  }
+
+  function cacheEmail(e) {
+    cachedEmail[email.uid] = e.detail.mail;
   }
 </script>
 
-<tr on:click="{openMail}" class:read="{email.read}">
+<tr on:click="{openModal}" class:read="{email.read}" title="{email.subject}">
   <td class="from">{email.from}</td>
-  <td class="subject">{email.subject}</td>
+  <td class="subject"><div>{email.subject}</div></td>
   <td class="date">{email.date}</td>
 </tr>
-<svelte:component this={EmailModal} bind:this={emailModal} emailUid={email.uid}/>
+{#if show}
+  <EmailModal email="{{ uid: email.uid, body: cachedEmail[email.uid] }}" on:close="{closeModal}" on:cache="{cacheEmail}" />
+{/if}
 
 <style lang="scss">
   tr {
@@ -30,18 +41,20 @@
       padding: 5px;
 
       &.from {
-        width: 30ch;
+        max-width: 35ch;
       }
 
       &.subject {
-        width: 50ch;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+        > div {
+          max-width: 50ch;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
       }
 
       &.date {
-        width: 15ch;
+        max-width: 15ch;
       }
     }
 

@@ -1,51 +1,62 @@
 <script lang="ts">
   import type { EMailBody } from "static/types";
-  export let emailUid: string;
-  let isOpen = false;
-  let promise: Promise<EMailBody> 
-
-  export function open() {
-    isOpen = true;
-  }
-
+  import { createEventDispatcher } from "svelte";
+  export let email: { uid: string, body: EMailBody };
+  let promise: Promise<EMailBody>;
+  const dispatch = createEventDispatcher();
+  
   function close() {
-    isOpen = false;
+    dispatch('close', {
+      text: 'closed'
+    });
   }
 
-  promise = getMail();
+  function cache(mail) {
+    dispatch('cache', {
+      mail
+    });
+  }
+
+  if (email.body !== undefined) {
+    promise = Promise.resolve(email.body);
+  } else {
+    promise = getMail();
+  }
 
   async function getMail(){
-    const res = await fetch('http://localhost:3000/user/mailbox/' + emailUid);
+    const res = await fetch('http://localhost:3000/user/mailbox/' + email.uid);
 
     const result = (await res.json()).result;
     result.date = (new Date(result.date)).toLocaleString();
+
+    if (result) {
+      cache(result);
+    }
 
     return result;
   }
 </script>
 
-{#if isOpen}
 <div class="modal">
   <div class="backdrop" on:click={close} />
-  {#await promise}
-    <p>Mail betöltése...</p>
-  {:then mail} 
   <div class="content-wrapper">
-    <header>
+  {#await promise}
+    <p>Email betöltése...</p>
+  {:then mail} 
+    <section class="content-header">
       <p><span>Küldő:</span> {mail.from}</p>
       <p><span>Tárgy:</span> {mail.subject}</p>
       <p><span>Érkezés dátuma:</span> {mail.date}</p>
-    </header>
+    </section>
     <section class="content">
       <p>{mail.body}</p>
     </section>
-    <footer>
+    <section class="content-footer">
       <button on:click="{close}">Bezárás</button>
-    </footer>
-  </div>
+    </section>
   {/await}
+  </div>
 </div>
-{/if}
 
 <style lang="scss">
   .modal {
@@ -71,10 +82,10 @@
       border-radius: 0.5rem;
       background-color: white;
       overflow: hidden;
-      padding: 1rem;
+      padding: 1rem 2rem;
       font-size: 1.4rem;
 
-      header {
+      .content-header {
         p {
           span {
             font-weight: bold;
@@ -89,11 +100,21 @@
         padding: 1.5rem;
         margin: 10px 0;
         border: 1px solid var(--textColor);
-        font-size: 1.8rem;
 
         p {
+          font-size: 1.8rem;
           word-spacing: 1px;
           line-height: 1.3;
+        }
+      }
+
+      .content-footer {
+        text-align: right;
+
+        button {
+          cursor: pointer;
+          font-size: 1.6rem;
+          padding: 0.5rem 1rem;
         }
       }
     }
