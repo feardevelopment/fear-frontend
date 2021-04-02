@@ -1,23 +1,37 @@
 <script lang="ts">
   import type { EMailBody } from "static/types";
   import { createEventDispatcher } from "svelte";
-  export let emailUid: string;
+  export let email: { uid: string, body: EMailBody };
   let promise: Promise<EMailBody>;
   const dispatch = createEventDispatcher();
   
-  export function close() {
+  function close() {
     dispatch('close', {
       text: 'closed'
     });
   }
 
-  promise = getMail();
+  function cache(mail) {
+    dispatch('cache', {
+      mail
+    });
+  }
+
+  if (email.body !== undefined) {
+    promise = Promise.resolve(email.body);
+  } else {
+    promise = getMail();
+  }
 
   async function getMail(){
-    const res = await fetch('http://localhost:3000/user/mailbox/' + emailUid);
+    const res = await fetch('http://localhost:3000/user/mailbox/' + email.uid);
 
     const result = (await res.json()).result;
     result.date = (new Date(result.date)).toLocaleString();
+
+    if (result) {
+      cache(result);
+    }
 
     return result;
   }
@@ -26,7 +40,7 @@
 <div class="modal">
   <div class="backdrop" on:click={close} />
   {#await promise}
-    <p>Mail betöltése...</p>
+    <p>Email betöltése...</p>
   {:then mail} 
   <div class="content-wrapper">
     <header>

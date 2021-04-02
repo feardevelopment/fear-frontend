@@ -3,6 +3,7 @@
   import EmailModal from '$lib/EmailModal.svelte';
   export let email: EMailHeader;
   let show = false;
+  let cachedEmail = {};
   email.date = (new Date(email.date)).toLocaleString();
 
   function openModal() {
@@ -13,6 +14,10 @@
   function closeModal() {
     show = false;
   }
+
+  function cacheEmail(e) {
+    cachedEmail[email.uid] = e.detail.mail;
+  }
 </script>
 
 <tr on:click="{openModal}" class:read="{email.read}">
@@ -21,7 +26,7 @@
   <td class="date">{email.date}</td>
 </tr>
 {#if show}
-  <EmailModal emailUid="{email.uid}" on:close="{closeModal}" />
+  <EmailModal email="{{ uid: email.uid, body: cachedEmail[email.uid] }}" on:close="{closeModal}" on:cache="{cacheEmail}" />
 {/if}
 
 <style lang="scss">
