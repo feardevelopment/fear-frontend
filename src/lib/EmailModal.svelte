@@ -43,17 +43,17 @@
     <p>Email betöltése...</p>
   {:then mail} 
   <div class="content-wrapper">
-    <header>
+    <section class="content-header">
       <p><span>Küldő:</span> {mail.from}</p>
       <p><span>Tárgy:</span> {mail.subject}</p>
       <p><span>Érkezés dátuma:</span> {mail.date}</p>
-    </header>
+    </section>
     <section class="content">
       <p>{mail.body}</p>
     </section>
-    <footer>
+    <section class="content-footer">
       <button on:click="{close}">Bezárás</button>
-    </footer>
+    </section>
   </div>
   {/await}
 </div>
@@ -82,10 +82,10 @@
       border-radius: 0.5rem;
       background-color: white;
       overflow: hidden;
-      padding: 1rem;
+      padding: 1rem 2rem;
       font-size: 1.4rem;
 
-      header {
+      .content-header {
         p {
           span {
             font-weight: bold;
@@ -100,11 +100,21 @@
         padding: 1.5rem;
         margin: 10px 0;
         border: 1px solid var(--textColor);
-        font-size: 1.8rem;
 
         p {
+          font-size: 1.8rem;
           word-spacing: 1px;
           line-height: 1.3;
+        }
+      }
+
+      .content-footer {
+        text-align: right;
+
+        button {
+          cursor: pointer;
+          font-size: 1.6rem;
+          padding: 0.5rem 1rem;
         }
       }
     }

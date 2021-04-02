@@ -20,9 +20,9 @@
   }
 </script>
 
-<tr on:click="{openModal}" class:read="{email.read}">
+<tr on:click="{openModal}" class:read="{email.read}" title="{email.subject}">
   <td class="from">{email.from}</td>
-  <td class="subject">{email.subject}</td>
+  <td class="subject"><div>{email.subject}</div></td>
   <td class="date">{email.date}</td>
 </tr>
 {#if show}
@@ -41,18 +41,20 @@
       padding: 5px;
 
       &.from {
-        width: 30ch;
+        max-width: 35ch;
       }
 
       &.subject {
-        width: 50ch;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+        > div {
+          max-width: 50ch;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
       }
 
       &.date {
-        width: 15ch;
+        max-width: 15ch;
       }
     }
 
