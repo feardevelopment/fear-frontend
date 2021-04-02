@@ -3,12 +3,15 @@
 	import LoggedOutNav from '$lib/LoggedOutNav.svelte';
 	import { browser } from '$app/env';
 	import { session } from '$app/stores';
+  import { onDestroy } from 'svelte';
 	let loggedIn = false;
+  const sub = session.subscribe(value => loggedIn = value);
 	
 	if (browser) {
-    session.subscribe(value => loggedIn = value);
 		session.set(sessionStorage.getItem('FEAR_token') ? true : false);
 	}
+
+  onDestroy(sub);
 </script>
 
 <header>

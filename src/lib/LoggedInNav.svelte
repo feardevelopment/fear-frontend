@@ -17,7 +17,7 @@
     <li><a href="/"><span>Pénzügyek</span></a></li>
     <li><a href="/"><span>Információ</span></a></li>
   </ul>
-  <span on:click="{logOut}">Kijelentkezés</span>
+  <button on:click="{logOut}">Kijelentkezés</button>
 </div>
 
 <style lang="scss">
@@ -27,7 +27,16 @@
     }
   }
 
-  span {
+  button {
+    font-size: 1.8rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    background: var(--accentColor);
     cursor: pointer;
-  }
+
+    &:hover {
+      background: var(--secondaryAccentColor);
+    }
+}
 </style>
