@@ -2,6 +2,7 @@ const TypographyPlugin = function ({ addUtilities }) {
 	const textFormats = {
 		'.headline-1': {
 			fontSize: '56px',
+			lineHeight: '72px',
 			fontFamily: 'Montserrat',
 			letterSpacing: '0.05em',
 			fontWeight: '500'

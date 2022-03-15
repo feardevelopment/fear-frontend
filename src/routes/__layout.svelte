@@ -13,7 +13,7 @@
 
 <style lang="stylus">
 .landing-wrapper
-	height 100%
+	height 100vh
 	background url("/static/Wave.svg") no-repeat fixed bottom
 	background-size contain
 
