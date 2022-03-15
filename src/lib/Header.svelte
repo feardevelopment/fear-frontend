@@ -24,7 +24,7 @@
 </script>
 
 <header>
-	<a href={loggedIn ? '/home' : '/'}><h2>FEAR</h2></a>
+	<a href={loggedIn ? '/home' : '/'}><p class="fear-logo">FEAR</p></a>
 	<LoggedOutNav />
 </header>
 

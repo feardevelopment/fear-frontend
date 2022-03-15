@@ -1,5 +1,10 @@
 const TypographyPlugin = function ({ addUtilities }) {
 	const textFormats = {
+		'.fear-logo': {
+			fontSize: '3rem',
+			fontFamily: 'Rubik',
+			letterSpacing: '0.15em'
+		},
 		'.headline-1': {
 			fontSize: '3.5rem',
 			lineHeight: '72px',
