@@ -13,15 +13,12 @@
 
 <style lang="stylus">
 .landing-wrapper
-	height 100vh
+	@apply h-screen bg-contain;
 	background url("/static/Wave.svg") no-repeat fixed bottom
-	background-size contain
 
 .landing
+	@apply w-full mx-auto my-0;
 	max-width 90rem
-	width 100%
-	padding 0 1.875rem
-	margin 0 auto
 
 	main
 		margin-top 0.625rem

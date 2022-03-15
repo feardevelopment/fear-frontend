@@ -7,27 +7,24 @@
 
 <style lang="stylus">
 ul
-	display flex
-	align-items center
-	column-gap 1.875rem
+	@apply flex items-center gap-x-7;
 
 	li
-		list-style none
+		@apply list-none;
 
 		a
-			font-size 1.5rem
+			@apply text-2xl;
 			letter-spacing 0.005rem
 
 			&.login-cta
-				color #2BA5EA
+				@apply bg-white text-blue-baby;
 				padding 0.625rem 1rem
 				border-radius 0.9375rem
-				background #FFFFFF
 				transition all 0.2s ease-in
 
 				&:hover
 					box-shadow: 5px 5px 20px 0px rgba(0,0,0,0.5);
 			
 			&.register-cta:hover
-				text-decoration underline
+				@apply underline;
 </style>

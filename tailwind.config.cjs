@@ -44,7 +44,16 @@ const TypographyPlugin = function ({ addUtilities }) {
 module.exports = {
 	content: ['./src/**/*.svelte'],
 	theme: {
-		extend: {}
+		extend: {
+			colors: {
+				green: {
+					'button': '#15D173'
+				},
+				blue: {
+					'baby': '#2BA5EA'
+				}
+			},
+		}
 	},
 	plugins: [TypographyPlugin]
 };

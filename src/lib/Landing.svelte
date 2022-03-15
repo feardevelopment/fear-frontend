@@ -1,5 +1,5 @@
 <section>
-	<div class="flex flex-col gap-y-10">
+	<div class="text">
 		<h1>
 			A FEAR (Fejlett Egyetemi Adminisztrációs Rendszer) egy tetszőleges egyetem adminisztrálására
 			lett fejlesztve.
@@ -17,13 +17,15 @@
 section
 	@apply flex flex-row gap-x-10;
 	
+	.text
+		@apply flex flex-col gap-y-7;
+	
     button
-			@apply w-max bg-transparent text-white cursor-pointer headline-4;
+			@apply w-max headline-4 border-4 border-green-button;
 			padding 0.5rem 1rem
-			border 4px solid #15d173
 			border-radius 0.9375rem
 			transition all 0.2s ease-in
 
 			&:hover
-				background #15d173
+				@apply bg-green-button;
 </style>
