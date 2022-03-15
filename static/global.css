@@ -12,6 +12,11 @@
 	src: url('./Montserrat-Medium.ttf');
 }
 
+@font-face {
+	font-family: 'Rubik';
+	src: url('./Rubik-Regular.ttf');
+}
+
 body {
 	height: 100vh;
 	width: 100%;
@@ -43,6 +48,14 @@ h3 {
 
 h4 {
 	@apply headline-4;
+}
+
+h5 {
+	@apply headline-5;
+}
+
+h6 {
+	@apply headline-6;
 }
 
 *,
