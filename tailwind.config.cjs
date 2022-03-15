@@ -29,12 +29,12 @@ const TypographyPlugin = function ({ addUtilities }) {
 		},
 		'.body-2': {
 			fontSize: '16px',
-			fontFamily: 'Khula',
+			fontFamily: 'Rubik',
 			letterSpacing: '0.05em'
 		},
 		'.body-3': {
 			fontSize: '12px',
-			fontFamily: 'Khula'
+			fontFamily: 'Rubik'
 		}
 	};
 
@@ -50,7 +50,8 @@ module.exports = {
 					'button': '#15D173'
 				},
 				blue: {
-					'baby': '#2BA5EA'
+					'baby': '#2BA5EA',
+					'footer': '#338CCC'
 				}
 			},
 		}

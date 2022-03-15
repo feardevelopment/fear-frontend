@@ -4,10 +4,10 @@
 			A FEAR (Fejlett Egyetemi Adminisztrációs Rendszer) egy tetszőleges egyetem adminisztrálására
 			lett fejlesztve.
 		</h1>
-		<h4>
+		<h3>
 			A FEAR célja, hogy kényelmes, biztonságos és gyors adminisztrációt tegyen lehetővé minden
 			felhasználója számára.
-		</h4>
+		</h3>
 		<button><a href="/login">Vágjunk bele!</a></button>
 	</div>
 	<img src="../../static/graduate.svg" alt="Graduate icon">

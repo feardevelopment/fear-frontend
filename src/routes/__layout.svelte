@@ -1,13 +1,17 @@
 <script>
 	import Header from '$lib/Header.svelte';
+	import Footer from '../lib/Footer.svelte';
 </script>
 
 <div class="landing-wrapper">
 	<div class="landing">
-		<Header />
-		<main>
-			<slot />
-		</main>
+		<div class="content">
+			<Header />
+			<main>
+				<slot />
+			</main>
+		</div>
+		<Footer />
 	</div>
 </div>
 
@@ -17,8 +21,11 @@
 	background url("/static/Wave.svg") no-repeat fixed bottom
 
 .landing
-	@apply w-full mx-auto my-0;
-	max-width 90rem
+	@apply w-full h-full flex flex-col;
+
+	.content
+		@apply w-full mx-auto my-0;
+		max-width 90rem
 
 	main
 		margin-top 0.625rem
