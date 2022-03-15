@@ -1,9 +1,13 @@
-
-
 <section>
-  <h1>A FEAR (Fejlett Egyetemi Adminisztrációs Rendszer) egy tetszőleges egyetem adminisztrálására lett fejlesztve.</h1>
-  <h4>A FEAR célja, hogy kényelmes, biztonságos és gyors adminisztrációt tegyen lehetővé minden felhasználója számára.</h4>
-  <button><a href="/login">Vágjunk bele!</a></button>
+	<h1>
+		A FEAR (Fejlett Egyetemi Adminisztrációs Rendszer) egy tetszőleges egyetem adminisztrálására
+		lett fejlesztve.
+	</h1>
+	<h4>
+		A FEAR célja, hogy kényelmes, biztonságos és gyors adminisztrációt tegyen lehetővé minden
+		felhasználója számára.
+	</h4>
+	<button><a href="/login">Vágjunk bele!</a></button>
 </section>
 
 <style lang="stylus">
@@ -11,16 +15,7 @@ section
 	display flex
 	flex-direction column
 	row-gap 2.5rem
-
-    h1
-			font-size 3.75rem
-			line-height 4.875rem
-			letter-spacing 0.01rem
-
-    h4
-			font-size 2.25rem
-			letter-spacing 0.01rem
-
+	
     button
 			width max-content
 			background transparent
@@ -35,5 +30,5 @@ section
 			transition all 0.2s ease-in
 
 			&:hover
-				background #15d173	
+				background #15d173
 </style>

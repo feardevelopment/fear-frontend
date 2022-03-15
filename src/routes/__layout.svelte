@@ -6,7 +6,7 @@
 	<div class="landing">
 		<Header />
 		<main>
-			<slot></slot>
+			<slot />
 		</main>
 	</div>
 </div>

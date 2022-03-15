@@ -1,8 +1,8 @@
 <nav>
-  <ul>
-    <li><a class="register-cta" href="/register"><span>Regisztráció</span></a></li>
-    <li><a class="login-cta" href="/login"><span>Bejelentkezés</span></a></li>
-  </ul>
+	<ul>
+		<li><a class="register-cta" href="/register"><span>Regisztráció</span></a></li>
+		<li><a class="login-cta" href="/login"><span>Bejelentkezés</span></a></li>
+	</ul>
 </nav>
 
 <style lang="stylus">

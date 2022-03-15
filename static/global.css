@@ -1,21 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+	font-family: 'Montserrat';
+	src: url('./Montserrat-Regular.ttf');
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	src: url('./Montserrat-Medium.ttf');
+}
+
 body {
 	height: 100vh;
 	width: 100%;
 	margin: 0;
 	padding: 0;
-	font-family: 'Rubik', "Helvetica Neue", sans-serif;
-	background: rgb(100,104,222);
-	background: linear-gradient(151deg, rgba(100,104,222,1) 25%, rgba(43,165,234,1) 64%);
+	font-family: 'Rubik', 'Helvetica Neue', sans-serif;
+	background: rgb(100, 104, 222);
+	background: linear-gradient(151deg, rgba(100, 104, 222, 1) 25%, rgba(43, 165, 234, 1) 64%);
 	background-attachment: fixed;
-	color: #FFFFFF;
+	color: #ffffff;
 }
 
 a {
-	color: #FFFFFF;
+	color: #ffffff;
 	text-decoration: none;
 }
-*, 
-*::before, 
+
+h1 {
+	@apply headline-1;
+}
+
+h2 {
+	@apply headline-2;
+}
+
+h3 {
+	@apply headline-3;
+}
+
+h4 {
+	@apply headline-4;
+}
+
+*,
+*::before,
 *::after {
 	box-sizing: border-box;
 	margin: 0;
