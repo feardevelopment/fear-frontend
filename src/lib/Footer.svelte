@@ -1,5 +1,5 @@
 <footer>
-  <p>© 2021 FEAR Development</p>
+	<p>© 2021 FEAR Development</p>
 </footer>
 
 <style lang="stylus">

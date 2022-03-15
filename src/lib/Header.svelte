@@ -3,7 +3,7 @@
 	import { browser } from '$app/env';
 	import { session } from '$app/stores';
 	import { onDestroy } from 'svelte';
-	
+
 	let loggedIn = false;
 	const sub = session.subscribe((value) => {
 		loggedIn = value.user?.loggedIn;

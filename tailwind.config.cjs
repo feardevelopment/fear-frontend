@@ -65,12 +65,12 @@ module.exports = {
 			black: '#000000',
 			red: '#FF0000',
 			green: {
-				'button': '#15D173',
-				'active': '#20F389'
+				button: '#15D173',
+				active: '#20F389'
 			},
 			blue: {
-				'baby': '#2BA5EA',
-				'footer': '#338CCC'
+				baby: '#2BA5EA',
+				footer: '#338CCC'
 			}
 		}
 	},

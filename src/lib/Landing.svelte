@@ -10,7 +10,7 @@
 		</h3>
 		<button><a href="/login">Vágjunk bele!</a></button>
 	</div>
-	<img src="../../static/graduate.svg" alt="Graduate icon">
+	<img src="../../static/graduate.svg" alt="Graduate icon" />
 </section>
 
 <style lang="stylus">
