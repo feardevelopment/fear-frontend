@@ -31,5 +31,5 @@
 <style lang="stylus">
 header
 	@apply flex items-center justify-between;
-	padding 1.875rem 0
+	padding 0.625rem 0
 </style>

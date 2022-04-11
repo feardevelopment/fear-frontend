@@ -8,24 +8,18 @@
 			A FEAR célja, hogy kényelmes, biztonságos és gyors adminisztrációt tegyen lehetővé minden
 			felhasználója számára.
 		</h3>
-		<button><a href="/login">Vágjunk bele!</a></button>
 	</div>
 	<img src="../../static/graduate.svg" alt="Graduate icon" />
 </section>
 
 <style lang="stylus">
 section
-	@apply flex flex-row gap-x-10;
+	@apply flex flex-row items-center justify-between gap-x-10 mt-12;
 	
 	.text
 		@apply flex flex-col gap-y-7;
-	
-    button
-			@apply w-max headline-4 border-4 border-green-button;
-			padding 0.5rem 1rem
-			border-radius 0.9375rem
-			transition all 0.2s ease-in
+		max-width 960px
 
-			&:hover
-				@apply bg-green-button;
+	img
+		@apply mr-12;
 </style>

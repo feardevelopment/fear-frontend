@@ -6,46 +6,46 @@ const TypographyPlugin = function ({ addUtilities }) {
 			letterSpacing: '0.15em'
 		},
 		'.headline-1': {
-			fontSize: '3.5rem',
+			fontSize: '3rem',
 			lineHeight: '72px',
 			fontFamily: 'Montserrat',
-			letterSpacing: '0.05em',
+			letterSpacing: '0.1em',
 			fontWeight: '500'
 		},
 		'.headline-2': {
-			fontSize: '3rem',
+			fontSize: '2.5rem',
 			fontFamily: 'Montserrat',
-			letterSpacing: '0.05em',
+			letterSpacing: '0.1em',
 			fontWeight: '500'
 		},
 		'.headline-3': {
-			fontSize: '2.25rem',
-			letterSpacing: '0.05em'
+			fontSize: '2rem',
+			letterSpacing: '0.1em'
 		},
 		'.headline-4': {
-			fontSize: '1.75rem',
-			fontFamily: 'Montserrat',
-			letterSpacing: '0.05em'
-		},
-		'.headline-5': {
 			fontSize: '1.5rem',
 			fontFamily: 'Montserrat',
-			letterSpacing: '0.05em'
+			letterSpacing: '0.1em'
 		},
-		'.headline-6': {
+		'.headline-5': {
 			fontSize: '1.25rem',
 			fontFamily: 'Montserrat',
-			letterSpacing: '0.05em'
+			letterSpacing: '0.1em'
+		},
+		'.headline-6': {
+			fontSize: '1.125rem',
+			fontFamily: 'Montserrat',
+			letterSpacing: '0.1em'
 		},
 		'.body-1': {
 			fontSize: '1rem',
 			fontFamily: 'Rubik',
-			letterSpacing: '0.05em'
+			letterSpacing: '0.1em'
 		},
 		'.body-2': {
 			fontSize: '0.875rem',
 			fontFamily: 'Rubik',
-			letterSpacing: '0.05em'
+			letterSpacing: '0.1em'
 		},
 		'.body-3': {
 			fontSize: '0.75rem',

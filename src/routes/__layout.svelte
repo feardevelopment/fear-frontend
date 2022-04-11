@@ -24,8 +24,7 @@
 	@apply w-full h-full flex flex-col;
 
 	.content
-		@apply w-full mx-auto my-0;
-		max-width 90rem
+		@apply w-full mx-auto my-0 px-20;
 
 	main
 		margin-top 0.625rem
