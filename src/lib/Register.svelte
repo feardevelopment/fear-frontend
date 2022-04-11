@@ -2,34 +2,14 @@
 	import type { HTTPResponse } from '../util/types';
 	import { goto } from '$app/navigation';
 
-	let formData = { firstName: '', lastName: '', email: '', username: '', password: '' };
-	let errors = { firstName: '', lastName: '', email: '', username: '', password: '' };
+	let formData = { email: '', name: '', password: '' };
+	let passwordAgain = '';
+	let errors = { email: '', name: '', password: '', passwordAgain: '' };
 	let status: HTTPResponse;
 	let successfulRegister = '';
 
 	const submitHandler = () => {
 		let valid = true;
-
-		if (formData.firstName.trim().length < 1) {
-			valid = false;
-			errors.firstName = 'A keresztnév nem lehet üres!';
-		} else {
-			errors.firstName = '';
-		}
-
-		if (formData.lastName.trim().length < 1) {
-			valid = false;
-			errors.lastName = 'A vezetéknév nem lehet üres!';
-		} else {
-			errors.lastName = '';
-		}
-
-		if (formData.username.trim().length < 1) {
-			valid = false;
-			errors.username = 'A felhasználónév nem lehet üres!';
-		} else {
-			errors.username = '';
-		}
 
 		if (
 			!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(formData.email)
@@ -40,6 +20,13 @@
 			errors.email = '';
 		}
 
+		if (formData.name.trim().length < 1) {
+			valid = false;
+			errors.name = 'A felhasználónév nem lehet üres!';
+		} else {
+			errors.name = '';
+		}
+
 		if (formData.password.trim().length < 8) {
 			valid = false;
 			errors.password = 'A jelszó nem lehet kevesebb, mint 8 karakter!';
@@ -47,11 +34,14 @@
 			errors.password = '';
 		}
 
+		if (formData.password !== passwordAgain) {
+			valid = false;
+			errors.passwordAgain = 'A két jelszó nem egyezik!';
+		} else {
+			errors.passwordAgain = '';
+		}
+
 		if (valid) {
-			formData.firstName =
-				formData.firstName[0].toUpperCase() + formData.firstName.substring(1).toLowerCase();
-			formData.lastName =
-				formData.lastName[0].toUpperCase() + formData.lastName.substring(1).toLowerCase();
 			register();
 		}
 	};
@@ -68,7 +58,7 @@
 		status = await res.json();
 
 		if (status.code !== 200) {
-			errors.username = 'Már létezik ilyen nevű felhasználó!';
+			errors.name = 'Már létezik ilyen nevű felhasználó!';
 		} else {
 			successfulRegister = 'Sikeres bejelentkezés! Hamarosan átirányítjuk.';
 			setTimeout(() => {
@@ -79,104 +69,87 @@
 </script>
 
 <section>
-	<h3>Regisztráció</h3>
+	<h2>Regisztráció</h2>
 	<form on:submit|preventDefault={submitHandler}>
-		<div class="name-inputs">
-			<div>
-				<label for="firstName">Keresztnév:</label>
-				<input
-					bind:value={formData.firstName}
-					type="text"
-					id="firstName"
-					class:error-input={errors.firstName}
-				/>
-				<p class="error">{errors.firstName}</p>
-			</div>
-			<div>
-				<label for="lastName">Vezetéknév:</label>
-				<input
-					bind:value={formData.lastName}
-					type="text"
-					id="lastName"
-					class:error-input={errors.lastName}
-				/>
-				<p class="error">{errors.lastName}</p>
-			</div>
-		</div>
 		<div>
-			<label for="email">Email:</label>
-			<input bind:value={formData.email} type="text" id="email" class:error-input={errors.email} />
+			<input
+				bind:value={formData.email}
+				type="text"
+				placeholder="Email"
+				class:error-input={errors.email}
+			/>
 			<p class="error">{errors.email}</p>
 		</div>
 		<div>
-			<label for="username">Felhasználónév:</label>
 			<input
-				bind:value={formData.username}
-				type="text"
-				id="username"
-				class:error-input={errors.username}
+				bind:value={formData.name}
+				placeholder="Felhasználónév"
+				class:error-input={errors.name}
 			/>
-			<p class="error">{errors.username}</p>
+			<p class="error">{errors.name}</p>
 		</div>
 		<div>
-			<label for="password">Jelszó:</label>
 			<input
 				bind:value={formData.password}
 				type="password"
-				id="password"
+				placeholder="Jelszó"
 				class:error-input={errors.password}
 			/>
 			<p class="error">{errors.password}</p>
 		</div>
+		<div>
+			<input
+				bind:value={passwordAgain}
+				type="password"
+				placeholder="Jelszó ismét"
+				class:error-input={errors.passwordAgain}
+			/>
+			<p class="error">{errors.passwordAgain}</p>
+		</div>
 		<p class={successfulRegister === '' ? 'hidden' : 'success'}>{successfulRegister}</p>
 		<button type="submit">Regisztráció</button>
 	</form>
-	<p class="login-text">Már van fiókja? Jelentkezzen be <a href="/login">itt!</a></p>
+	<div class="have-account">
+		<p>Már van fiókja?</p>
+		<a href="/login"><p>Jelentkezzen be!</p></a>
+	</div>
 </section>
 
 <style lang="stylus">
-  section 
-    @apply w-full text-left h-min py-5 px-12 my-0 mx-auto bg-white rounded-lg text-black;
-    max-width 600px
+section
+	@apply w-max text-left py-5 px-6 my-0 mx-auto bg-white rounded-sm text-black flex flex-col gap-y-4;
+	
+	form
+		@apply flex flex-col gap-y-4;
 
-    h3
-      @apply mb-4;
-    
-    form
-      @apply flex flex-col gap-y-4;
+		input
+			@apply input-text py-3 px-4;
+			width 340px
+			border 0.5px solid black
+			border-radius 3px
 
-      label
-        @apply headline-6 mt-4 mx-0 mb-1;
+			&::placeholder
+				@apply text-black opacity-100;
 
-      input
-        @apply headline-6 rounded-md py-1 px-2;
-        border 1.5px solid silver
+		button
+			@apply headline-4 mx-auto py-2 px-4 cursor-pointer rounded-xl bg-blue-baby text-white transition-colors w-full;
+			
+			&:hover 
+				@apply bg-blue-footer;
 
-      button
-        @apply headline-4 mt-4 mx-auto py-2 px-4 cursor-pointer rounded-md bg-green-button transition-colors;
-        
-        &:hover 
-          @apply bg-green-active;
-        
-    .login-text
-      @apply body-1 text-center mt-2;
+	.have-account
+			@apply text-center mt-2 body-1;
 
-      a
-        @apply text-green-button underline;
-    
-  input 
-    @apply w-full;
+			a
+				@apply text-green-blueish underline;
 
-  .name-inputs
-    @apply flex gap-x-3;
-  
-  .error-input
-    @apply border-2 border-red;
-    border 2px solid red
+.error-input
+	@apply border-2 border-red;
+	border 2px solid red
 
-  .error
-    @apply text-red body-2 mt-1 font-bold;
-  
-  .success
-    @apply text-green-button text-center body-1 mt-2;
+.error
+	@apply text-red body-2 mt-1 font-bold;
+
+.success	
+	@apply text-green-button text-center body-1 mt-2;
 </style>

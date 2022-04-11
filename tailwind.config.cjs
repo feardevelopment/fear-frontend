@@ -8,48 +8,52 @@ const TypographyPlugin = function ({ addUtilities }) {
 		'.headline-1': {
 			fontSize: '3rem',
 			lineHeight: '72px',
-			fontFamily: 'Montserrat',
+			fontFamily: 'Poppins',
 			letterSpacing: '0.1em',
 			fontWeight: '500'
 		},
 		'.headline-2': {
-			fontSize: '2.5rem',
-			fontFamily: 'Montserrat',
-			letterSpacing: '0.1em',
+			fontSize: '2.625rem',
+			fontFamily: 'Poppins',
 			fontWeight: '500'
 		},
 		'.headline-3': {
 			fontSize: '2rem',
+			fontFamily: 'Poppins',
 			letterSpacing: '0.1em'
 		},
 		'.headline-4': {
 			fontSize: '1.5rem',
-			fontFamily: 'Montserrat',
+			fontFamily: 'Poppins',
 			letterSpacing: '0.1em'
 		},
 		'.headline-5': {
 			fontSize: '1.25rem',
-			fontFamily: 'Montserrat',
+			fontFamily: 'Poppins',
 			letterSpacing: '0.1em'
 		},
 		'.headline-6': {
 			fontSize: '1.125rem',
-			fontFamily: 'Montserrat',
+			fontFamily: 'Poppins',
 			letterSpacing: '0.1em'
 		},
 		'.body-1': {
 			fontSize: '1rem',
 			fontFamily: 'Rubik',
-			letterSpacing: '0.1em'
+			fontWeight: '400'
 		},
 		'.body-2': {
 			fontSize: '0.875rem',
-			fontFamily: 'Rubik',
-			letterSpacing: '0.1em'
+			fontFamily: 'Rubik'
 		},
 		'.body-3': {
 			fontSize: '0.75rem',
 			fontFamily: 'Rubik'
+		},
+		'.input-text': {
+			fontSize: '1.25rem',
+			fontFamily: 'Rubik',
+			fontWeight: '300'
 		}
 	};
 
@@ -66,7 +70,8 @@ module.exports = {
 			red: '#FF0000',
 			green: {
 				button: '#15D173',
-				active: '#20F389'
+				active: '#20F389',
+				blueish: '#00A896'
 			},
 			blue: {
 				baby: '#2BA5EA',

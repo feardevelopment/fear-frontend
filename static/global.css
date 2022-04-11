@@ -3,18 +3,23 @@
 @tailwind utilities;
 
 @font-face {
-	font-family: 'Montserrat';
-	src: url('./Montserrat-Regular.ttf');
+	font-family: 'Poppins';
+	src: url('./Poppins-Regular.ttf');
 }
 
 @font-face {
-	font-family: 'Montserrat';
-	src: url('./Montserrat-Medium.ttf');
+	font-family: 'Poppins';
+	src: url('./Poppins-Medium.ttf');
 }
 
 @font-face {
 	font-family: 'Rubik';
 	src: url('./Rubik-Regular.ttf');
+}
+
+@font-face {
+	font-family: 'Rubik';
+	src: url('./Rubik-Light.ttf');
 }
 
 body {

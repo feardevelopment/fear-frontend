@@ -3,8 +3,8 @@
 	import Footer from '../lib/Footer.svelte';
 </script>
 
-<div class="landing-wrapper">
-	<div class="landing">
+<div class="default-layout-wrapper">
+	<div class="default-layout">
 		<div class="content">
 			<Header />
 			<main>
@@ -16,11 +16,11 @@
 </div>
 
 <style lang="stylus">
-.landing-wrapper
+.default-layout-wrapper
 	@apply h-screen bg-contain;
 	background url("/static/Wave.svg") no-repeat fixed bottom
 
-.landing
+.default-layout
 	@apply w-full h-full flex flex-col;
 
 	.content
