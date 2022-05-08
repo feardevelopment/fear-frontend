@@ -3,10 +3,12 @@
 	import type { EMailHeader } from '../util/types';
 
 	let promise: Promise<EMailHeader[]>;
+	let searchTerm = '';
+	let allEmails: Promise<EMailHeader[]>;
 	promise = getEmails();
 
 	async function getEmails(): Promise<EMailHeader[]> {
-		return Promise.resolve(
+		allEmails = Promise.resolve(
 			new Array(10).fill({
 				from: 'Kiss Pista',
 				subject: 'Első levelem',
@@ -15,7 +17,22 @@
 				uid: ''
 			})
 		);
+
+		return allEmails;
 	}
+
+	const searchEmails = async () => {
+		if (!searchTerm) {
+			promise = allEmails;
+			return;
+		}
+
+		promise = Promise.resolve(
+			(await allEmails).filter(
+				(email) => email.from.includes(searchTerm) || email.subject.includes(searchTerm)
+			)
+		);
+	};
 </script>
 
 <svelte:head>
@@ -25,6 +42,15 @@
 <section>
 	<div class="email-header">
 		<h3>Üzenetek</h3>
+		<div class="search-input">
+			<input
+				on:change={searchEmails}
+				bind:value={searchTerm}
+				type="text"
+				placeholder="Keresés..."
+			/>
+			<img src="../../static/search.svg" alt="Search icon" />
+		</div>
 	</div>
 	{#await promise}
 		<p>Üzenetek betöltése...</p>
@@ -54,7 +80,18 @@ section
 	max-height: 80vh;
 
 	.email-header 
-		@apply flex items-center w-full border-b px-5 py-3;
+		@apply flex items-center w-full border-b px-5 py-3 justify-between;
+
+		.search-input
+			@apply relative;
+
+			input
+				@apply border outline-none py-1 px-2 input-text;
+
+			img
+				@apply w-5 h-5 absolute text-red;
+				top: 10px;
+				right: 6px;
 
 	.table
 		@apply w-full input-text flex flex-col;
