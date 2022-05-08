@@ -1,12 +1,40 @@
+<script context="module" lang="ts">
+	import type { LoadInput, LoadOutput } from '@sveltejs/kit';
+
+	export async function load({ routeId, session }: LoadInput): Promise<LoadOutput> {
+		const unauthenticatedRoutes = ['', 'login', 'register'];
+
+		if (!session?.user && !unauthenticatedRoutes.includes(routeId)) {
+			return { status: 302, redirect: '/login' };
+		} else if (session?.user || unauthenticatedRoutes.includes(routeId)) {
+			return {
+				props: {
+					user: session.user
+				}
+			};
+		} else {
+			return { status: 302, redirect: '/login' };
+		}
+	}
+</script>
+
 <script>
 	import Header from '$lib/Header.svelte';
-	import Footer from '../lib/Footer.svelte';
+	import LoggedOutNav from '$lib/LoggedOutNav.svelte';
+	import Footer from '$lib/Footer.svelte';
+	export let user;
 </script>
 
 <div class="default-layout-wrapper">
 	<div class="default-layout">
 		<div class="content">
-			<Header />
+			<Header>
+				{#if user}
+					<p>Logged in</p>
+				{:else}
+					<LoggedOutNav />
+				{/if}
+			</Header>
 			<main>
 				<slot />
 			</main>

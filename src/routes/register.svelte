@@ -1,11 +1,11 @@
 <script lang="ts">
 	import type { HTTPResponse } from '../util/types';
-	import { goto } from '$app/navigation';
 
-	let formData = { email: '', password: '' };
-	let errors = { email: '', password: '' };
+	let formData = { email: '', name: '', password: '' };
+	let passwordAgain = '';
+	let errors = { email: '', name: '', password: '', passwordAgain: '' };
 	let status: HTTPResponse;
-	let successfulLogin = '';
+	let successfulRegister = '';
 
 	const submitHandler = () => {
 		let valid = true;
@@ -26,13 +26,20 @@
 			errors.password = '';
 		}
 
+		if (formData.password !== passwordAgain) {
+			valid = false;
+			errors.passwordAgain = 'A két jelszó nem egyezik!';
+		} else {
+			errors.passwordAgain = '';
+		}
+
 		if (valid) {
-			login();
+			register();
 		}
 	};
 
-	async function login() {
-		const res = await fetch('http://localhost:3000/user/login', {
+	async function register() {
+		const res = await fetch('http://localhost:3000/api/auth/register', {
 			method: 'POST',
 			body: JSON.stringify(formData),
 			headers: {
@@ -43,18 +50,19 @@
 		status = await res.json();
 
 		if (status.code !== 200) {
-			errors.password = 'Rossz jelszó'
+			errors.name = 'Már létezik ilyen nevű felhasználó!';
 		} else {
-			successfulLogin = 'Sikeres bejelentkezés!';
-			setTimeout(() => {
-				goto('home');
-			}, 2500);
+			successfulRegister = 'Sikeres regisztráció! Most már bejelentkezhet a fiókjába.';
 		}
 	}
 </script>
 
+<svelte:head>
+	<title>Regisztráció</title>
+</svelte:head>
+
 <section>
-	<h2>Bejelentkezés</h2>
+	<h2>Regisztráció</h2>
 	<form on:submit|preventDefault={submitHandler}>
 		<div>
 			<input
@@ -62,8 +70,18 @@
 				type="text"
 				placeholder="Email"
 				class:error-input={errors.email}
+				autocomplete="email"
 			/>
 			<p class="error">{errors.email}</p>
+		</div>
+		<div>
+			<input
+				bind:value={formData.name}
+				placeholder="Felhasználónév"
+				class:error-input={errors.name}
+				autocomplete="username"
+			/>
+			<p class="error">{errors.name}</p>
 		</div>
 		<div>
 			<input
@@ -71,15 +89,26 @@
 				type="password"
 				placeholder="Jelszó"
 				class:error-input={errors.password}
+				autocomplete="new-password"
 			/>
 			<p class="error">{errors.password}</p>
 		</div>
-		<p class={successfulLogin === '' ? 'hidden' : 'success'}>{successfulLogin}</p>
-		<button type="submit">Bejelentkezés</button>
+		<div>
+			<input
+				bind:value={passwordAgain}
+				type="password"
+				placeholder="Jelszó ismét"
+				class:error-input={errors.passwordAgain}
+				autocomplete="new-password"
+			/>
+			<p class="error">{errors.passwordAgain}</p>
+		</div>
+		<p class={successfulRegister === '' ? 'hidden' : 'success'}>{successfulRegister}</p>
+		<button type="submit">Regisztráció</button>
 	</form>
-	<div class="no-account">
-		<p>Még nem FEAR tag?</p>
-		<a href="/login"><p>Csatlakozzon most!</p></a>
+	<div class="have-account">
+		<p>Már van fiókja?</p>
+		<a href="/login"><p>Jelentkezzen be!</p></a>
 	</div>
 </section>
 
@@ -105,11 +134,11 @@ section
 			&:hover 
 				@apply bg-blue-footer;
 
-	.no-account
+	.have-account
 			@apply text-center mt-2 body-1;
 
 			a
-				@apply text-green-blueish underline;
+				@apply text-green-blueish font-bold underline;
 
 .error-input
 	@apply border-2 border-red;
