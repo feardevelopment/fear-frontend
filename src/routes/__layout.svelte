@@ -62,5 +62,6 @@
 		@apply w-full mx-auto my-0;
 
 	main
+		@apply mx-20;
 		margin-top 0.625rem
 </style>
