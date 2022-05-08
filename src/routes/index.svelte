@@ -1,5 +1,5 @@
 <svelte:head>
-	<title>Welcome</title>
+	<title>FEAR | Egyetemi adminisztráció</title>
 </svelte:head>
 
 <section>

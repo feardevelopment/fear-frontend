@@ -18,6 +18,10 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Főoldal</title>
+</svelte:head>
+
 <section>
 	<div class="email-header">
 		<h3>Üzenetek</h3>
