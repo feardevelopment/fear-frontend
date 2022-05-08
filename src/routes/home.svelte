@@ -89,7 +89,7 @@ section
 				@apply border outline-none py-1 px-2 input-text;
 
 			img
-				@apply w-5 h-5 absolute text-red;
+				@apply w-5 h-5 absolute cursor-pointer;
 				top: 10px;
 				right: 6px;
 
