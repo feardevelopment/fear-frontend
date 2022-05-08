@@ -1,3 +1,3 @@
 <div class="h-full px-20 bg-white text-black">
-  <p>asd</p>
+	<p>asd</p>
 </div>
