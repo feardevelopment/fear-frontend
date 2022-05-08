@@ -14,6 +14,18 @@ import NavigationItem from './NavigationItem.svelte';
     {
       name: 'Saját adatok',
       subItems: ['Személyes adatok', 'Képzettségek', 'Elérhetőségek', 'Beállítások', 'Adatmódosítások']
+    },
+    {
+      name: 'Tanulmányok',
+      subItems: ['Képzés adatok', 'Féléves adatok', 'Órarend', 'Tanulmányi átlagok', 'Leckekönyv', 'Mintatanterv', 'Mérföldkövek', 'Szakmai gyakorlat', 'Publikációk', 'Konzultációk', 'Előrehaladás', 'Hivatalos bejegyzések', 'Szakdolgozat']
+    },
+    {
+      name: 'Tárgyak',
+      subItems: ['Felvett tárgyak', 'Felvett kurzusok', 'Tárgyfelvétel', 'Feladatok', 'Megajánlott jegyek']
+    },
+    {
+      name: 'Vizsgák',
+      subItems: ['Vizsgajelentkezés', 'Felvett vizsgák']
     }
   ]
 </script>
