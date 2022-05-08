@@ -81,6 +81,10 @@ module.exports = {
 			blue: {
 				baby: '#2BA5EA',
 				footer: '#338CCC'
+			},
+			gray: {
+				light: '#F5F5F5',
+				dark: '#DEDEDE'
 			}
 		}
 	},
