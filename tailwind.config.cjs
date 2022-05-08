@@ -54,6 +54,11 @@ const TypographyPlugin = function ({ addUtilities }) {
 			fontSize: '1.25rem',
 			fontFamily: 'Rubik',
 			fontWeight: '300'
+		},
+		'.nav-items': {
+			fontSize: '1.5rem',
+			fontFamily: 'Rubik',
+			fontWeight: '400'
 		}
 	};
 

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { session } from '$app/stores';
+import NavigationItem from './NavigationItem.svelte';
 
 	const logout = async () => {
 		await fetch('api/logout', {
@@ -9,14 +10,19 @@
 		session.set({ user: null });
 	};
 
-  const navItems = ['Saját adatok', 'Tanulmányok', 'Tárgyak', 'Vizsgák']
+  const navItems = [
+    {
+      name: 'Saját adatok',
+      subItems: ['Személyes adatok', 'Képzettségek', 'Elérhetőségek', 'Beállítások', 'Adatmódosítások']
+    }
+  ]
 </script>
 
 <div class="flex items-center justify-between w-2/3">
   <nav>
     <ul class="flex items-center divide-x border-x">
       {#each navItems as navItem}
-        <li class="px-6">{navItem}</li>
+        <NavigationItem name={navItem.name} subItems={navItem.subItems}/>
       {/each}
     </ul>
   </nav>
