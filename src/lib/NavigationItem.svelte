@@ -1,18 +1,31 @@
 <script lang="ts">
-  export let name: string;
-  export let subItems: string[];
-  let hidden = true;
+	export let name: string;
+	export let subItems: string[];
+	let hidden = true;
 </script>
 
 <div class="navigation-item">
-  <li on:mouseover={() => hidden = false} on:focus={() => hidden = false} on:mouseleave={() => hidden = true} class:show={!hidden}>{name}</li>
-  <div on:mouseover={() => hidden = false} on:focus={() => hidden = false} on:mouseleave={() => hidden = true} class="subitems-wrapper" class:invisible={hidden}>
-    <div class="subitems">
-      {#each subItems as subItem}
-        <a href="/home"><p>{subItem}</p></a>
-      {/each}
-    </div>
-  </div>
+	<li
+		on:mouseover={() => (hidden = false)}
+		on:focus={() => (hidden = false)}
+		on:mouseleave={() => (hidden = true)}
+		class:show={!hidden}
+	>
+		{name}
+	</li>
+	<div
+		on:mouseover={() => (hidden = false)}
+		on:focus={() => (hidden = false)}
+		on:mouseleave={() => (hidden = true)}
+		class="subitems-wrapper"
+		class:invisible={hidden}
+	>
+		<div class="subitems">
+			{#each subItems as subItem}
+				<a href="/home"><p>{subItem}</p></a>
+			{/each}
+		</div>
+	</div>
 </div>
 
 <style lang="stylus">
