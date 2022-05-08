@@ -1,5 +1,9 @@
+<script>
+	import { session } from '$app/stores';
+</script>
+
 <header>
-	<a href="/"><p class="fear-logo">FEAR</p></a>
+	<a href={$session.user ? '/home' : '/'}><p class="fear-logo">FEAR</p></a>
 	<slot />
 </header>
 

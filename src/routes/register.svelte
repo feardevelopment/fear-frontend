@@ -1,10 +1,9 @@
 <script lang="ts">
-	import type { HTTPResponse } from '../util/types';
+	import { goto } from '$app/navigation';
 
-	let formData = { email: '', name: '', password: '' };
+	const formData = { email: '', name: '', password: '' };
 	let passwordAgain = '';
-	let errors = { email: '', name: '', password: '', passwordAgain: '' };
-	let status: HTTPResponse;
+	const errors = { email: '', password: '', passwordAgain: '' };
 	let successfulRegister = '';
 
 	const submitHandler = () => {
@@ -39,7 +38,7 @@
 	};
 
 	async function register() {
-		const res = await fetch('http://localhost:3000/api/auth/register', {
+		const res = await fetch('api/register', {
 			method: 'POST',
 			body: JSON.stringify(formData),
 			headers: {
@@ -47,12 +46,11 @@
 			}
 		});
 
-		status = await res.json();
-
-		if (status.code !== 200) {
-			errors.name = 'Már létezik ilyen nevű felhasználó!';
+		if (!res.ok) {
+			errors.email = 'Az email már használatban van!';
 		} else {
-			successfulRegister = 'Sikeres regisztráció! Most már bejelentkezhet a fiókjába.';
+			successfulRegister = 'Sikeres regisztráció!';
+			setTimeout(() => goto('login'), 1500);
 		}
 	}
 </script>
@@ -75,13 +73,7 @@
 			<p class="error">{errors.email}</p>
 		</div>
 		<div>
-			<input
-				bind:value={formData.name}
-				placeholder="Felhasználónév"
-				class:error-input={errors.name}
-				autocomplete="username"
-			/>
-			<p class="error">{errors.name}</p>
+			<input bind:value={formData.name} placeholder="Név" autocomplete="name" />
 		</div>
 		<div>
 			<input

@@ -1,14 +1,10 @@
 <script lang="ts">
-	import type { HTTPResponse } from '../util/types';
 	import { goto } from '$app/navigation';
 	import { session } from '$app/stores';
 
-	let formData = { email: '', password: '' };
-	let errors = { email: '', password: '' };
-	let status: HTTPResponse;
+	const formData = { email: '', password: '' };
+	const errors = { email: '', password: '' };
 	let successfulLogin = '';
-
-	$session;
 
 	const submitHandler = () => {
 		let valid = true;
@@ -35,7 +31,7 @@
 	};
 
 	async function login() {
-		const res = await fetch('http://localhost:3000/api/auth/login', {
+		const res = await fetch('api/login', {
 			method: 'POST',
 			body: JSON.stringify(formData),
 			headers: {
@@ -43,15 +39,15 @@
 			}
 		});
 
-		status = await res.json();
-
-		if (status.code !== 200) {
+		if (!res.ok) {
 			errors.password = 'Rossz jelszó';
 		} else {
 			successfulLogin = 'Sikeres bejelentkezés!';
+			const user = await res.json();
 			setTimeout(() => {
+				session.set({ user });
 				goto('home');
-			}, 1000);
+			}, 1500);
 		}
 	}
 </script>

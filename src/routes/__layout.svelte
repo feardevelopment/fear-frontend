@@ -1,19 +1,20 @@
 <script context="module" lang="ts">
-	import type { LoadInput, LoadOutput } from '@sveltejs/kit';
+	import type { LoadInput } from '@sveltejs/kit';
 
-	export async function load({ routeId, session }: LoadInput): Promise<LoadOutput> {
+	export async function load({ routeId, session, url }: LoadInput) {
 		const unauthenticatedRoutes = ['', 'login', 'register'];
 
 		if (!session?.user && !unauthenticatedRoutes.includes(routeId)) {
 			return { status: 302, redirect: '/login' };
-		} else if (session?.user || unauthenticatedRoutes.includes(routeId)) {
+		} else if (session?.user && unauthenticatedRoutes.includes(routeId)) {
+			return { status: 302, redirect: '/home' };
+		} else {
 			return {
 				props: {
-					user: session.user
+					user: session.user,
+					url
 				}
 			};
-		} else {
-			return { status: 302, redirect: '/login' };
 		}
 	}
 </script>
@@ -22,7 +23,11 @@
 	import Header from '$lib/Header.svelte';
 	import LoggedOutNav from '$lib/LoggedOutNav.svelte';
 	import Footer from '$lib/Footer.svelte';
+	import LoggedInNav from '$lib/LoggedInNav.svelte';
+	import PageTransition from '$lib/PageTransition.svelte';
+
 	export let user;
+	export let url;
 </script>
 
 <div class="default-layout-wrapper">
@@ -30,13 +35,15 @@
 		<div class="content">
 			<Header>
 				{#if user}
-					<p>Logged in</p>
+					<LoggedInNav />
 				{:else}
 					<LoggedOutNav />
 				{/if}
 			</Header>
 			<main>
-				<slot />
+				<PageTransition {url}>
+					<slot />
+				</PageTransition>
 			</main>
 		</div>
 		<Footer />

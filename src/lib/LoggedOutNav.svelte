@@ -1,7 +1,9 @@
 <nav>
 	<ul>
-		<li><a class="register-cta" href="/register"><span>Regisztráció</span></a></li>
-		<li><a class="login-cta" href="/login"><span>Bejelentkezés</span></a></li>
+		<li>
+			<a class="register-cta" sveltekit:prefetch href="/register"><span>Regisztráció</span></a>
+		</li>
+		<li><a class="login-cta" sveltekit:prefetch href="/login"><span>Bejelentkezés</span></a></li>
 	</ul>
 </nav>
 
